@@ -1,0 +1,76 @@
+:root {
+  --gradient-0: 90deg, #03132e -70%, #3c91cd -20%, #9bd3ac 30%;
+}
+
+html {
+  pointer-events: all;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.why-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  background-color: rgb(154, 208, 178);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%; /* 각 li의 높이를 설정하여 화면에 5개가 보이도록 */
+}
+
+p {
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}
