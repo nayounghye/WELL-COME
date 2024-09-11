@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>section1</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 200vh;
+      }
+
+      .img-section {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .img-row {
+        display: flex;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* 이미지 공통 스타일 */
+      img.img {
+        width: 660px;
+        height: auto;
+        flex-shrink: 0;
+        position: relative;
+        box-shadow: 5px 5px 14px #0000007c;
+      }
+
+      /* 여권 이미지별 스타일 */
+      img.passport1 {
+        transform: rotate(-8.515deg);
+        z-index: 3;
+        left: 170px;
+        top: -280px;
+      }
+      img.passport2 {
+        transform: rotate(28.515deg);
+        z-index: 2;
+        left: 140px;
+        top: -200px;
+      }
+
+      img.passport3 {
+        transform: rotate(-8.104deg);
+        z-index: 1;
+        right: -300px;
+        top: -10px;
+      }
+
+      img.passport4 {
+        transform: rotate(17.104deg);
+        z-index: 5;
+        left: 50px;
+        bottom: 600px;
+      }
+
+      img.passport5 {
+        transform: rotate(-30.104deg);
+        z-index: 4;
+        left: 200px;
+        bottom: 700px;
+      }
+
+      /* 여권 애니메이션 */
+      @keyframes moveRight {
+        to {
+          transform: translateX((100vw));
+          opacity: 0;
+        }
+      }
+      @keyframes moveLeft {
+        to {
+          transform: translateX((-100vw));
+          opacity: 0;
+        }
+      }
+      @keyframes moveUp {
+        to {
+          transform: translateY((-100vh));
+          opacity: 0;
+        }
+      }
+      @keyframes moveDown {
+        to {
+          transform: translateY((100vh));
+          opacity: 0;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="img-section">
+      <div class="img-row">
+        <img
+          src="../static/img/Korea.svg"
+          alt="passport3"
+          class="img passport1"
+          id="passport-img-3"
+        />
+        <img
+          src="../static/img/China.svg"
+          alt="passport1"
+          class="img passport2"
+          id="passport-img-1"
+        />
+        <img
+          src="../static/img/Japan.svg"
+          alt="passport2"
+          class="img passport3"
+          id="passport-img-2"
+        />
+      </div>
+      <div class="img-row">
+        <img
+          src="../static/img/USA.svg"
+          alt="passport4"
+          class="img passport4"
+          id="passport-img-4"
+        />
+        <img
+          src="../static/img/Vietnam.svg"
+          alt="passport5"
+          class="img passport5"
+          id="passport-img-5"
+        />
+      </div>
+    </section>
+    <script></script>
+  </body>
+</html>
