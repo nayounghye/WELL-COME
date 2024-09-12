@@ -16,6 +16,7 @@
         width: 100%;
         height: 100%;
         position: fixed;
+        transition: opacity 0.5s ease;
       }
 
       .img-row {
@@ -25,7 +26,7 @@
         justify-content: center;
       }
 
-      /*  - 이미지 공통 스타일 */
+      /* 이미지 공통 스타일 */
       img.img {
         width: 660px;
         height: auto;
@@ -34,7 +35,7 @@
         box-shadow: 5px 5px 14px #0000007c;
       }
 
-      /* - 여권 이미지별 스타일 */
+      /* 여권 이미지별 스타일 */
       img.passport1 {
         transform: rotate(-8.515deg);
         z-index: 3;
@@ -69,7 +70,7 @@
         bottom: 700px;
       }
 
-      /* - 여권 애니메이션 */
+      /* 여권 애니메이션 */
       /* -- 10시 방향 */
       @keyframes moveTo10 {
         to {
@@ -110,17 +111,15 @@
         }
       }
 
-      /* - 섹션1 숨기기 */
-      .section1 {
+      /* 섹션 2 */
+      .section2 {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
         transition: opacity 0.5s ease;
       }
 
-      /* 섹션2 스타일 */
-      /* .section2 {
-        opacity: 0;
-        display: none; 
-        transition: opacity 0.5s ease;
-      } */
       .why-list {
         list-style-type: none;
         margin: 0;
@@ -187,74 +186,105 @@
         <li class="why-item">why5</li>
       </ul>
     </section>
+
     <script>
       // 모든 여권 이미지에 대한 이벤트 추가
       const passportImages = document.querySelectorAll('img');
+      const section1 = document.querySelector('.section1');
+      const section2 = document.querySelector('.section2');
       let previousScrollY = 0; // 이전 스크롤 위치 확인용 변수
       let scrollTriggered = false; // 애니메이션이 실행되었는지 여부
+
+      // 초기 상태: section1 활성화, section2 비활성화
+      section2.style.display = 'none'; // 처음에는 section2를 보이지 않게 설정
 
       // 스크롤 이벤트
       window.addEventListener('scroll', function () {
         const currentScrollY = window.scrollY;
 
-        // 특정 스크롤 위치에 도달하면 애니메이션 실행
+        // 스크롤 다운 시 section2로 전환
         if (currentScrollY > 50 && !scrollTriggered) {
           passportImages.forEach((img) => {
-            resetAnimation(img); // 기존 애니메이션 초기화
-            moveImage(img, 'normal'); // 스크롤 다운 시 애니메이션 실행
+            resetAnimation(img);
+            moveImage(img, 'normal');
           });
-          scrollTriggered = true; // 애니메이션이 한 번 실행되면 다시 실행되지 않도록 설정
+          scrollTriggered = true;
         }
 
-        // 스크롤이 다시 100px 이하로 올라갔을 때 애니메이션 반대로 실행
+        // 스크롤 업 시 section1으로 복귀
         if (currentScrollY <= 50 && scrollTriggered) {
           passportImages.forEach((img) => {
-            resetAnimation(img); // 기존 애니메이션 초기화
-            moveImage(img, 'reverse'); // 스크롤 업 시 애니메이션 반대로 실행
+            resetAnimation(img);
+            moveImage(img, 'reverse'); // 애니메이션을 reverse로 실행
           });
-          scrollTriggered = false; // 다시 스크롤을 내릴 때 애니메이션이 작동할 수 있도록 설정
+          scrollTriggered = false;
         }
 
-        // 이전 스크롤 위치 업데이트
         previousScrollY = currentScrollY;
       });
 
       // 이미지 이동 함수
       function moveImage(img, direction) {
-        let duration = direction === 'reverse' ? '1.5s' : '1.5s';
+        const duration = '1.5s';
+        const animationName =
+          img.id === 'passport-img-1'
+            ? 'moveTo10'
+            : img.id === 'passport-img-2'
+            ? 'moveTo12'
+            : img.id === 'passport-img-3'
+            ? 'moveTo3'
+            : img.id === 'passport-img-4'
+            ? 'moveTo8'
+            : 'moveTo5';
 
-        // 애니메이션 방향 설정
-        switch (img.id) {
-          case 'passport-img-1': // passport1은 10시 방향
-            img.style.animation = `moveTo10 ${duration} forwards`;
-            break;
-          case 'passport-img-2': // passport2는 12시 방향
-            img.style.animation = `moveTo12 ${duration} forwards`;
-            break;
-          case 'passport-img-3': // passport3은 3시 방향
-            img.style.animation = `moveTo3 ${duration} forwards`;
-            break;
-          case 'passport-img-4': // passport4는 8시 방향
-            img.style.animation = `moveTo8 ${duration} forwards`;
-            break;
-          case 'passport-img-5': // passport5는 5시 방향
-            img.style.animation = `moveTo5 ${duration} forwards`;
-            break;
+        img.style.animation = `${animationName} ${duration} forwards`;
+        img.style.animationDirection =
+          direction === 'reverse' ? 'reverse' : 'normal';
+
+        // 마지막 이미지의 애니메이션 끝난 후 section2로 전환
+        if (img.id === 'passport-img-5' && direction === 'normal') {
+          img.addEventListener('animationend', transitionToSection2, {
+            once: true,
+          });
         }
 
-        // 애니메이션 방향 설정 (normal 또는 reverse)
-        if (direction === 'reverse') {
-          img.style.animationDirection = 'reverse';
-        } else {
-          img.style.animationDirection = 'normal';
+        // 첫 번째 이미지의 애니메이션 끝난 후 section1으로 복귀
+        if (img.id === 'passport-img-1' && direction === 'reverse') {
+          img.addEventListener('animationend', transitionToSection1, {
+            once: true,
+          });
         }
       }
 
       // 애니메이션을 다시 적용할 수 있도록 초기화
       function resetAnimation(img) {
-        img.style.animation = 'none'; // 애니메이션 제거
+        img.style.animation = 'none';
         img.offsetHeight; // 강제로 리플로우 발생 (애니메이션 재적용을 위해)
-        img.style.animation = ''; // 애니메이션 속성 초기화
+        img.style.animation = '';
+      }
+
+      // Section 2로 전환 함수
+      function transitionToSection2() {
+        section1.style.opacity = '0';
+        setTimeout(() => {
+          section1.style.display = 'none';
+          section2.style.display = 'block';
+          setTimeout(() => {
+            section2.style.opacity = '1';
+          }, 15); // 빠르게 전환
+        }, 100);
+      }
+
+      // Section 1로 복귀 함수
+      function transitionToSection1() {
+        section2.style.opacity = '0';
+        setTimeout(() => {
+          section2.style.display = 'none';
+          section1.style.display = 'block';
+          setTimeout(() => {
+            section1.style.opacity = '1';
+          }, 15);
+        }, 100);
       }
     </script>
   </body>
