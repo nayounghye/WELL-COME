@@ -123,7 +123,6 @@
 
       .why-item {
         list-style: none;
-        background-color: rgb(154, 208, 178);
         margin: 0;
         padding: 0;
         display: flex;
@@ -132,6 +131,26 @@
         align-items: center;
         height: 20vh;
         width: 100%;
+        font-size: 34px;
+        font-weight: bolder;
+        color: #fff;
+      }
+
+      .why-item1 {
+        background-color: #9dd0ff;
+      }
+
+      .why-item2 {
+        background-color: #7dc1ff;
+      }
+      .why-item3 {
+        background-color: #5bb0ff;
+      }
+      .why-item4 {
+        background-color: #309cff;
+      }
+      .why-item5 {
+        background-color: #0f8cff;
       }
     </style>
   </head>
@@ -174,11 +193,11 @@
     </section>
     <section class="section2">
       <ul class="why-list">
-        <li class="why-item">why1</li>
-        <li class="why-item">why2</li>
-        <li class="why-item">why3</li>
-        <li class="why-item">why4</li>
-        <li class="why-item">why5</li>
+        <li class="why-item why-item1">选择“웰컴”的五大理由</li>
+        <li class="why-item why-item2">选择“웰컴”的五大理由</li>
+        <li class="why-item why-item3">选择“웰컴”的五大理由</li>
+        <li class="why-item why-item4">选择“웰컴”的五大理由</li>
+        <li class="why-item why-item5">选择“웰컴”的五大理由</li>
       </ul>
     </section>
 
@@ -187,31 +206,37 @@
       const section1 = document.querySelector('.section1');
       const section2 = document.querySelector('.section2');
       let scrollTriggered = false; // 애니메이션 실행 여부
+      let isAnimating = false; // 애니메이션 중인지 여부
 
-      section2.style.display = 'none'; // section2는 처음에 보이지 않음
+      section2.style.display = 'none'; // 처음에 section2는 보이지 않음
 
       // 스크롤 이벤트
       window.addEventListener('scroll', function () {
         const currentScrollY = window.scrollY;
 
-        // 스크롤 다운 시 애니메이션 실행 후 section2 전환
-        if (currentScrollY > 50 && !scrollTriggered) {
-          passportImages.forEach((img, index) => {
-            resetAnimation(img);
-            moveImage(img, 'normal', index === passportImages.length - 1); // 마지막 이미지에 애니메이션 종료 이벤트 추가
-          });
-          scrollTriggered = true;
-        }
-
-        // 스크롤 업 시 section2에서 section1으로 전환 후 애니메이션 reverse 실행
-        if (currentScrollY <= 50 && scrollTriggered) {
-          transitionToSection1(() => {
+        if (!isAnimating) {
+          // 애니메이션 중이면 스크롤 이벤트 차단
+          // 스크롤 다운 시 애니메이션 실행 후 section2 전환
+          if (currentScrollY > 50 && !scrollTriggered) {
+            isAnimating = true; // 애니메이션 시작
             passportImages.forEach((img, index) => {
               resetAnimation(img);
-              moveImage(img, 'reverse', index === 0); // 첫 번째 이미지에 애니메이션 종료 이벤트 추가
+              moveImage(img, 'normal', index === passportImages.length - 1);
             });
-          });
-          scrollTriggered = false;
+            scrollTriggered = true;
+          }
+
+          // 스크롤 업 시 section1으로 복귀 후 애니메이션 reverse 실행
+          if (currentScrollY <= 50 && scrollTriggered) {
+            isAnimating = true; // 애니메이션 시작
+            transitionToSection1(() => {
+              passportImages.forEach((img, index) => {
+                resetAnimation(img);
+                moveImage(img, 'reverse', index === 0);
+              });
+            });
+            scrollTriggered = false;
+          }
         }
       });
 
@@ -233,7 +258,7 @@
         img.style.animationDirection =
           direction === 'reverse' ? 'reverse' : 'normal';
 
-        // 애니메이션 끝나면 section2로 전환 (스크롤 내릴 때)
+        // 마지막 이미지의 애니메이션 끝난 후 section2로 전환
         if (triggerTransition && direction === 'normal') {
           img.addEventListener('animationend', transitionToSection2, {
             once: true,
@@ -256,11 +281,12 @@
           section2.style.display = 'block';
           setTimeout(() => {
             section2.style.opacity = '1';
-          }, 5);
-        }, 5);
+            isAnimating = false; // 애니메이션 완료
+          }, 15);
+        }, 100);
       }
 
-      // Section 1로 복귀 함수 (전환 후 애니메이션 reverse 실행)
+      // Section 1로 복귀 함수
       function transitionToSection1(afterTransitionCallback) {
         section2.style.opacity = '0';
         setTimeout(() => {
@@ -268,9 +294,10 @@
           section1.style.display = 'block';
           setTimeout(() => {
             section1.style.opacity = '1';
-            afterTransitionCallback(); // Section1 복귀 후 애니메이션 reverse 실행
-          }, 5);
-        }, 5);
+            afterTransitionCallback();
+            isAnimating = false; // 애니메이션 완료
+          }, 15);
+        }, 100);
       }
     </script>
   </body>
