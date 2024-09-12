@@ -11,7 +11,8 @@
         height: 200vh;
       }
 
-      .img-section {
+      /* 섹션 1 */
+      .section1 {
         width: 100%;
         height: 100%;
         position: fixed;
@@ -24,7 +25,7 @@
         justify-content: center;
       }
 
-      /* 이미지 공통 스타일 */
+      /*  - 이미지 공통 스타일 */
       img.img {
         width: 660px;
         height: auto;
@@ -33,7 +34,7 @@
         box-shadow: 5px 5px 14px #0000007c;
       }
 
-      /* 여권 이미지별 스타일 */
+      /* - 여권 이미지별 스타일 */
       img.passport1 {
         transform: rotate(-8.515deg);
         z-index: 3;
@@ -68,8 +69,8 @@
         bottom: 700px;
       }
 
-      /* 여권 애니메이션 */
-      /* 10시 방향 */
+      /* - 여권 애니메이션 */
+      /* -- 10시 방향 */
       @keyframes moveTo10 {
         to {
           transform: translate(-100vw, -100vh);
@@ -77,7 +78,7 @@
         }
       }
 
-      /* 12시 방향 */
+      /* -- 12시 방향 */
       @keyframes moveTo12 {
         to {
           transform: translateY(-100vh);
@@ -85,7 +86,7 @@
         }
       }
 
-      /* 3시 방향 */
+      /* -- 3시 방향 */
       @keyframes moveTo3 {
         to {
           transform: translateX(100vw);
@@ -93,7 +94,7 @@
         }
       }
 
-      /* 8시 방향 */
+      /* -- 8시 방향 */
       @keyframes moveTo8 {
         to {
           transform: translate(-100vw, 100vh);
@@ -101,17 +102,47 @@
         }
       }
 
-      /* 5시 방향 */
+      /* -- 5시 방향 */
       @keyframes moveTo5 {
         to {
           transform: translate(100vw, 100vh);
           opacity: 0;
         }
       }
+
+      /* - 섹션1 숨기기 */
+      .section1 {
+        transition: opacity 0.5s ease;
+      }
+
+      /* 섹션2 스타일 */
+      /* .section2 {
+        opacity: 0;
+        display: none; 
+        transition: opacity 0.5s ease;
+      } */
+      .why-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .why-item {
+        list-style: none;
+        background-color: rgb(154, 208, 178);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 20vh;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
-    <section class="img-section">
+    <section class="section1">
       <div class="img-row">
         <img
           src="../static/img/Korea.svg"
@@ -146,6 +177,15 @@
           id="passport-img-5"
         />
       </div>
+    </section>
+    <section class="section2">
+      <ul class="why-list">
+        <li class="why-item">why1</li>
+        <li class="why-item">why2</li>
+        <li class="why-item">why3</li>
+        <li class="why-item">why4</li>
+        <li class="why-item">why5</li>
+      </ul>
     </section>
     <script>
       // 모든 여권 이미지에 대한 이벤트 추가
