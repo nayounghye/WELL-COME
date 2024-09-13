@@ -158,19 +158,19 @@
     <section class="section1">
       <div class="img-row">
         <img
-          src="../static/img/Korea.svg"
+          src="../static/img/Korea.jpg"
           alt="passport3"
           class="img passport1"
           id="passport-img-1"
         />
         <img
-          src="../static/img/China.svg"
+          src="../static/img/China.jpg"
           alt="passport1"
           class="img passport2"
           id="passport-img-2"
         />
         <img
-          src="../static/img/Japan.svg"
+          src="../static/img/Japan.jpg"
           alt="passport2"
           class="img passport3"
           id="passport-img-3"
@@ -178,13 +178,13 @@
       </div>
       <div class="img-row">
         <img
-          src="../static/img/USA.svg"
+          src="../static/img/USA.jpg"
           alt="passport4"
           class="img passport4"
           id="passport-img-4"
         />
         <img
-          src="../static/img/Vietnam.svg"
+          src="../static/img/Vietnam.jpg"
           alt="passport5"
           class="img passport5"
           id="passport-img-5"
@@ -252,7 +252,9 @@
             ? 'moveTo3'
             : img.id === 'passport-img-4'
             ? 'moveTo8'
-            : 'moveTo5';
+            : img.id === 'passport-img-5'
+            ? 'moveTo5'
+            : '';
 
         img.style.animation = `${animationName} ${duration} forwards`;
         img.style.animationDirection =
