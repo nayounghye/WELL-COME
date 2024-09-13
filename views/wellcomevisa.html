@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wellcomevisa</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .cc-nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: auto;
+
+        z-index: 1000;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .cc-hidden {
+        opacity: 0; /* 보이지 않음 */
+      }
+
+      .cc-active {
+        background-color: #333333 !important;
+        color: #fcab40 !important;
+      }
+
+      @keyframes cc-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        20% {
+          transform: translateY(-12px);
+        }
+        40% {
+          transform: translateY(0px);
+        }
+        60% {
+          transform: translateY(-8px);
+        }
+        80% {
+          transform: translateY(0px);
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .cc-mo-grid-container {
+          display: none;
+        }
+        .cc-grid-container {
+          width: 100%;
+          max-width: 1200px;
+          height: 60px;
+          display: grid;
+          grid-template-columns: 1fr 4fr;
+          gap: 20px;
+        }
+        .cc-nav-logo,
+        .cc-topMenu {
+          width: 100%;
+          height: 60px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .cc-nav-logo a {
+          width: 100%;
+          height: 100%;
+
+          line-height: 50px;
+          text-decoration: none;
+
+          background-color: #333333;
+          border-radius: 0 0 8px 8px;
+
+          color: #fcab40;
+          font-family: 'Tenada' !important;
+          font-size: 28px;
+          padding-top: 10px;
+        }
+
+        .cc-nav-menu-container {
+          width: 100%;
+          height: 60px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 10px;
+        }
+        .cc-topMenu a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+          line-height: 60px;
+
+          background-color: #fcab40;
+          border-radius: 0 0 8px 8px;
+
+          font-family: 'BMJUA';
+          font-size: 24px;
+          cursor: pointer;
+          color: #1a1a1a;
+        }
+
+        .cc-topMenu a:hover,
+        .cc-nav-logo a:hover {
+          animation: cc-bounce 0.6s ease infinite;
+        }
+
+        .cc-nav-logo a:hover {
+          color: #fcab40 !important;
+        }
+
+        .nav-topMenu a:active {
+          background-color: #333333;
+          color: #fcab40;
+        }
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1200px) {
+        .cc-mo-grid-container {
+          display: none;
+        }
+        .cc-grid-container {
+          width: 100%;
+          max-width: 768px;
+          height: 50px;
+          display: grid;
+          grid-template-columns: 1fr 4fr;
+          gap: 14px;
+        }
+        .cc-nav-logo,
+        .cc-topMenu {
+          width: 100%;
+          height: 50px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .cc-nav-logo a {
+          width: 100%;
+          height: 100%;
+
+          line-height: 40px;
+          text-decoration: none;
+
+          background-color: #333333;
+          border-radius: 0 0 8px 8px;
+
+          color: #fcab40;
+          font-family: 'Tenada' !important;
+          font-size: 20px;
+          padding-top: 10px;
+        }
+        .cc-nav-menu-container {
+          width: 100%;
+          height: 50px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 8px;
+        }
+
+        .cc-topMenu a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+          line-height: 50px;
+
+          background-color: #fcab40;
+          border-radius: 0 0 8px 8px;
+
+          font-family: 'BMJUA';
+          font-size: 20px;
+          cursor: pointer;
+          color: #1a1a1a;
+        }
+
+        .cc-topMenu a:hover,
+        .cc-nav-logo a:hover {
+          animation: cc-bounce 0.6s ease infinite;
+        }
+
+        .cc-nav-logo a:hover {
+          color: #fcab40 !important;
+        }
+
+        .nav-topMenu a:active {
+          background-color: #333333;
+          color: #fcab40;
+        }
+      }
+      @media screen and (min-width: 360px) and (max-width: 768px) {
+        .move-out {
+          right: -70%;
+          transition: right 0.5s ease;
+        }
+        .move-in {
+          right: 0px; /* 화면 안으로 이동 */
+          transition: right 0.5s ease;
+        }
+        .cc-grid-container {
+          display: none;
+        }
+        .cc-mo-grid-container {
+          width: 100%;
+          height: 50px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          background-color: #333333;
+        }
+        #cc-nav-moLogo {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          text-align: center;
+        }
+        #cc-nav-moLogo a {
+          width: 100%;
+          height: 100%;
+
+          text-decoration: none;
+          background-color: #333333;
+          color: #fcab40;
+          font-family: 'Tenada' !important;
+          font-size: 20px;
+          text-align: left;
+          line-height: 54px;
+          padding-left: 16px;
+        }
+        #cc-nev-dropdown {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          text-align: center;
+        }
+        #cc-nev-dropdown i {
+          font-size: 24px;
+          color: #fcab40;
+          margin-right: 16px;
+        }
+
+        #cc-dropMenu-container {
+          position: fixed;
+          top: 50px;
+
+          width: 70%;
+          height: 100vh;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          text-align: center;
+          background-color: #333333;
+          gap: 20px;
+          padding: 20px;
+
+          overflow: hidden;
+        }
+
+        .cc-serviceTitle {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          text-align: center;
+          line-height: 50px;
+          font-family: 'TENADA';
+          font-size: 28px;
+          color: #fcab40;
+        }
+        .cc-dropMenu-line {
+          width: 100%;
+          height: 3px;
+          border-radius: 3px;
+          background-color: #fcab40;
+        }
+        .cc-dropMenu {
+          width: 100%;
+          height: 32px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .cc-dropMenu a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+          line-height: 32px;
+
+          background-color: #fcab40;
+          border-radius: 8px;
+
+          font-family: 'BMJUA';
+          font-size: 20px;
+          cursor: pointer;
+          color: #1a1a1a;
+        }
+
+        #cc-dropMenu-container > div:nth-child(6) {
+          margin-top: 40px;
+          color: #ffca42;
+        }
+
+        #cc-dropMenu-container > div:nth-child(7) {
+          background-color: #ffca42;
+        }
+
+        #cc-dropMenu-container > div:nth-child(8) > a {
+          background-color: #ffca42;
+        }
+        #cc-dropMenu-container > div:nth-child(9) {
+          height: auto;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 0.5fr 0.5fr;
+          gap: 10px;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > a {
+          height: auto;
+          text-align: right;
+          background-color: #333333;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > div:nth-child(2) {
+          text-align: right !important;
+          font-family: 'SUIT';
+          font-size: 12px;
+          font-weight: 400;
+          color: #fcab40;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > div:nth-child(3) {
+          text-align: right !important;
+          font-family: 'tenada';
+          font-size: 22px;
+          font-weight: 400;
+          color: #fcab40;
+        }
+      }
+
+      @media screen and (max-width: 360px) {
+        .move-out {
+          right: -98%;
+          transition: right 0.5s ease;
+        }
+        .move-in {
+          right: 0px; /* 화면 안으로 이동 */
+          transition: right 0.5s ease;
+        }
+        .cc-grid-container {
+          display: none;
+        }
+        .cc-mo-grid-container {
+          width: 100%;
+          height: 50px;
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 8px;
+          background-color: #1a1a1a;
+        }
+        #cc-nav-moLogo {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          text-align: center;
+        }
+        #cc-nav-moLogo a {
+          width: 100%;
+          height: 100%;
+
+          text-decoration: none;
+          background-color: #333333;
+          color: #fcab40;
+          font-family: 'Tenada' !important;
+          font-size: 20px;
+          text-align: left;
+          line-height: 54px;
+          padding-left: 16px;
+        }
+        #cc-nev-dropdown {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          text-align: center;
+        }
+        #cc-nev-dropdown i {
+          font-size: 24px;
+          color: #fcab40;
+          margin-right: 16px;
+        }
+
+        #cc-dropMenu-container {
+          position: fixed;
+          top: 50px;
+
+          width: 98%;
+          height: 100vh;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          text-align: center;
+          background-color: #333333;
+          gap: 20px;
+          padding: 20px;
+
+          overflow: hidden;
+        }
+
+        .cc-serviceTitle {
+          width: 100%;
+          height: 32px;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          text-align: center;
+          line-height: 50px;
+          font-family: 'TENADA';
+          font-size: 22px;
+          color: #fcab40;
+        }
+        .cc-dropMenu-line {
+          width: 100%;
+          height: 3px;
+          border-radius: 3px;
+          background-color: #fcab40;
+        }
+        .cc-dropMenu {
+          width: 100%;
+          height: 32px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .cc-dropMenu a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+          line-height: 32px;
+
+          background-color: #fcab40;
+          border-radius: 8px;
+
+          font-family: 'BMJUA';
+          font-size: 18px;
+          cursor: pointer;
+          color: #1a1a1a;
+        }
+
+        #cc-dropMenu-container > div:nth-child(6) {
+          margin-top: 20px;
+          color: #ffca42;
+        }
+
+        #cc-dropMenu-container > div:nth-child(7) {
+          background-color: #ffca42;
+        }
+
+        #cc-dropMenu-container > div:nth-child(8) > a {
+          background-color: #ffca42;
+        }
+        #cc-dropMenu-container > div:nth-child(9) {
+          height: auto;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 0.5fr 0.5fr;
+          gap: 10px;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > a {
+          height: auto;
+          text-align: right;
+          background-color: #333333;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > div:nth-child(2) {
+          text-align: right !important;
+          font-family: 'SUIT';
+          font-size: 12px;
+          font-weight: 400;
+          color: #fcab40;
+        }
+        #cc-dropMenu-container > div:nth-child(9) > div:nth-child(3) {
+          text-align: right !important;
+          font-family: 'tenada';
+          font-size: 22px;
+          font-weight: 400;
+          color: #fcab40;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cc-nav-container">
+      <div class="cc-mo-grid-container">
+        <div id="cc-nav-moLogo">
+          <a href="https://well-come.info">WELL-COME</a>
+        </div>
+        <div id="cc-nev-dropdown">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div id="cc-dropMenu-container" class="cc-hidden move-out">
+          <div class="cc-serviceTitle">외국인 서비스</div>
+          <div class="cc-dropMenu-line"></div>
+          <div class="cc-dropMenu" id="cc-dropMenu-1">
+            <a href="https://well-come.info/">외국인 취업</a>
+          </div>
+          <div class="cc-dropMenu" id="cc-dropMenu-2">
+            <a href="https://well-come.info/corporate-visa">외국인 창업비자</a>
+          </div>
+          <div class="cc-dropMenu" id="cc-dropMenu-3">
+            <a href="https://well-come.info/incorporation">외국인 법인설립</a>
+          </div>
+          <div class="cc-serviceTitle">기업 서비스</div>
+          <div class="cc-dropMenu-line"></div>
+          <div class="cc-dropMenu" id="cc-dropMenu-4">
+            <a href="https://well-come.info/">서비스 문의</a>
+          </div>
+
+          <div id="cc-nav-moLogo">
+            <a href="https://well-come.info">WELL-COME</a>
+            <div>서울시 마포구 마포대로 78<br />자람빌딩 11층 1113,1115호</div>
+            <div>1551-8016</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-grid-container">
+        <div class="cc-nav-logo" id="cc-nav-topLogo">
+          <a href="https://well-come.info">WELL-COME</a>
+        </div>
+        <div class="cc-nav-menu-container">
+          <div></div>
+          <div></div>
+          <div class="cc-topMenu" id="cc-topMenu-1">
+            <a href="https://well-come.info/incorporation">법인설립</a>
+          </div>
+          <div class="cc-topMenu active" id="cc-topMenu-2">
+            <a class="cc-active" href="https://well-come.info/corporate-visa"
+              >창업비자</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function moveToContainer() {
+        const dropMenuContainer = document.getElementById(
+          'cc-dropMenu-container'
+        );
+
+        if (dropMenuContainer.classList.contains('cc-hidden')) {
+          dropMenuContainer.classList.remove('cc-hidden');
+          dropMenuContainer.classList.remove('move-out');
+          dropMenuContainer.classList.add('move-in');
+        } else {
+          dropMenuContainer.classList.remove('move-in');
+          dropMenuContainer.classList.add('move-out');
+          setTimeout(() => {
+            dropMenuContainer.classList.add('cc-hidden');
+          }, 500);
+        }
+      }
+
+      document
+        .getElementById('cc-nev-dropdown')
+        .addEventListener('click', function () {
+          moveToContainer();
+        });
+    </script>
+  </body>
+</html>
