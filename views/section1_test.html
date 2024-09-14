@@ -26,17 +26,18 @@
 
       .img-container {
         display: flex;
-        width: 80%;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
       }
 
       /* 이미지 공통 스타일 */
       img.img {
-        width: 660px;
+        width: 34vw; /* 뷰포트 너비의 30% */
+        max-width: 660px;
         height: auto;
-        flex-shrink: 0;
-        position: relative;
+        position: absolute;
         box-shadow: 5px 5px 14px #0000007c;
       }
 
@@ -80,37 +81,43 @@
 
       /* 여권 이미지별 스타일 */
       img.passport1 {
-        transform: rotate(-8.515deg);
+        transform: translate(-80%, -45%) rotate(-8.515deg);
+        left: 25%;
+        top: 25%;
         z-index: 3;
-        left: 170px;
-        top: -280px;
       }
       img.passport2 {
-        transform: rotate(28.515deg);
+        transform: translate(-55%, -30%) rotate(28.515deg);
+        left: 50%;
+        top: 10%;
         z-index: 2;
-        left: 140px;
-        top: -200px;
       }
 
       img.passport3 {
-        transform: rotate(-8.104deg);
+        transform: translate(-10%, -9%) rotate(-8.104deg);
+        left: 75%;
+        top: 10%;
         z-index: 1;
-        right: -300px;
-        top: -10px;
       }
 
       img.passport4 {
-        transform: rotate(17.104deg);
+        transform: translate(-100%, -20%) rotate(17.104deg);
+        left: 40%;
+        top: 60%;
         z-index: 5;
-        left: 50px;
-        bottom: 600px;
       }
 
       img.passport5 {
-        transform: rotate(-30.104deg);
+        transform: translate(120%, -1%) rotate(-30.104deg);
+        left: 10%;
+        top: 40%;
         z-index: 4;
-        left: 200px;
-        bottom: 700px;
+      }
+
+      @media screen and (max-width: 768px) {
+        img.img {
+          width: 50vw;
+        }
       }
 
       /* 여권 애니메이션 */
@@ -234,8 +241,6 @@
             class="img passport3"
             id="passport-img-3"
           />
-        </div>
-        <div class="img-container">
           <img
             src="../static/img/USA.jpg"
             alt="passport4"
@@ -262,11 +267,11 @@
     </section> -->
       <section class="section2">
         <ul class="why-list">
-          <li class="why-item why-item1">选择“웰컴”的五大理由</li>
-          <li class="why-item why-item2">选择“웰컴”的五大理由</li>
-          <li class="why-item why-item3">选择“웰컴”的五大理由</li>
-          <li class="why-item why-item4">选择“웰컴”的五大理由</li>
-          <li class="why-item why-item5">选择“웰컴”的五大理由</li>
+          <li class="why-item why-item1">选择"웰컴"的五大理由</li>
+          <li class="why-item why-item2">选择"웰컴"的五大理由</li>
+          <li class="why-item why-item3">选择"웰컴"的五大理由</li>
+          <li class="why-item why-item4">选择"웰컴"的五大理由</li>
+          <li class="why-item why-item5">选择"웰컴"的五大理由</li>
         </ul>
       </section>
       <section class="section4"></section>
