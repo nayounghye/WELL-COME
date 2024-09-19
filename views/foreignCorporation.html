@@ -103,13 +103,9 @@
 
           <div class="ccv-form-multiStep" id="ccv-userKoreanTestLevel">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">한국어 능력시험 점수</div>
-            <div class="ccv-formButton" data-value="TOPIK 3급 이상">
-              TOPIK 3급 이상
-            </div>
-            <div class="ccv-formButton" data-value="TOPIK 3급 미만">
-              TOPIK 3급 미만
-            </div>
+            <div class="ccv-form-title">거주 지역</div>
+            <div class="ccv-formButton" data-value="한국 거주">한국 거주</div>
+            <div class="ccv-formButton" data-value="해외 거주">해외 거주</div>
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
@@ -118,9 +114,12 @@
 
           <div class="ccv-form-multiStep" id="ccv-intellectualPropertyRights">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">지식재산권을 보유하고 있요?</div>
-            <div class="ccv-formButton" data-value="지재권 미보유">아니오</div>
-            <div class="ccv-formButton" data-value="지재권 보유">예</div>
+            <div class="ccv-form-title">회사의 설립 형태 선택해주세요</div>
+            <div class="ccv-formButton" data-value="주식회사">주식회사</div>
+            <div class="ccv-formButton" data-value="유한책임회사">
+              유한책임회사
+            </div>
+            <div class="ccv-formButton" data-value="유한회사">유한회사</div>
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
@@ -132,14 +131,12 @@
             id="ccv-intellectualPropertyRights-sub"
           >
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">보유중인 지식재산권의 종류와 상태</div>
+            <div class="ccv-form-title">회사의 설립 지역을 선택해주세요</div>
             <div class="ccv-intellectualPropertyRightsType">
               <div class="ccv-radio-SelectBox">
                 <input type="radio" name="intellectual_property" value="tech" />
-                <img
-                  src="https://cdn.imweb.me/thumbnail/20240822/b9cacbb01ba36.png"
-                />
-                기술특허
+
+                서울
               </div>
               <div class="ccv-radio-SelectBox">
                 <input
@@ -147,10 +144,8 @@
                   name="intellectual_property"
                   value="design"
                 />
-                <img
-                  src="https://cdn.imweb.me/thumbnail/20240822/a92efff8d2d8d.png"
-                />
-                디자인특허
+
+                경기도
               </div>
             </div>
             <div class="ccv-hiddenForm" id="ccv-patent">
@@ -165,13 +160,8 @@
 
           <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">법인을 설립하고 보유중이신가요?</div>
-            <div class="ccv-formButton" data-value="미설립">
-              아니요, 법인을 설립하지 않았습니다.
-            </div>
-            <div class="ccv-formButton" data-value="설립">
-              예, 법인을 설립하였습니다.
-            </div>
+            <div class="ccv-form-title">법인명을 작성해주세요</div>
+            <input type="text" class="ccv-formButton" placeholder="법인명" />
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
@@ -180,13 +170,10 @@
 
           <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">투자유치 이력 확인</div>
-            <div class="ccv-formButton" data-value="1억원 이상 투자유치">
-              1억원 이상의 투자유치 이력이 있습니다.
-            </div>
-            <div class="ccv-formButton" data-value="투자유치 이력없음">
-              1억원 미만 또는 투자유치 이력이 없습니다.
-            </div>
+            <div class="ccv-form-title">이름과 연락처를 작성해주세요</div>
+            <input type="text" class="ccv-formButton" placeholder="이름" />
+            <input type="text" class="ccv-formButton" placeholder="연락처" />
+
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
@@ -195,10 +182,10 @@
 
           <div class="ccv-form-multiStep" id="ccv-isStartupProgramCompleted">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">
+            <!-- <div class="ccv-form-title">
               수료한 외국인창업교육(OASIS)프로그램을 선택해주세요
-            </div>
-            <div class="ccv-checkbox-container">
+            </div> -->
+            <!-- <div class="ccv-checkbox-container">
               <div class="ccv-formButton" id="oasis-1" data-value="OASIS-1">
                 OASIS-1
               </div>
@@ -214,7 +201,7 @@
               <div class="ccv-formButton" id="oasis-7" data-value="OASIS-7">
                 OASIS-7
               </div>
-            </div>
+            </div> -->
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton">결과보기</div>
