@@ -24,7 +24,7 @@
         transition: opacity 0.5s ease;
       }
 
-      .img-container {
+      .section1-container.img {
         display: flex;
         width: 80%;
         align-items: center;
@@ -49,31 +49,32 @@
       }
 
       /* @media screen and (min-width: 1200px) {
-      }
+           }
 
-      @media screen and (min-width: 768px) and (max-width: 1200px) {
-      }
-      @media screen and (min-width: 360px) and (max-width: 768px) {
-      }
- */
+           @media screen and (min-width: 768px) and (max-width: 1200px) {
+           }
+           @media screen and (min-width: 360px) and (max-width: 768px) {
+           }
+      */
 
       /* 웰컴을 선택하는 이유? 텍스트 */
 
-      .text-container {
+      .section1-container.img {
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .section1Text.wellcome {
-        font-size: 110px;
+      .section1-text.wellcome {
+        font-size: 100px;
         font-weight: bold;
       }
-      .section1Text.text {
-        font-size: 100px;
+      a.section1-text.text {
+        font-size: 10px;
+        display: inline;
       }
 
-      .section1Text.choice {
+      .section1-text.choice {
         font-size: 140px;
         font-weight: bold;
       }
@@ -214,7 +215,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <section class="section1">
-      <div class="img-container">
+      <div class="section1-container img">
         <img
           src="../static/img/Korea.jpg"
           alt="passport3"
@@ -234,7 +235,7 @@
           id="passport-img-3"
         />
       </div>
-      <div class="img-container">
+      <div class="section1-container img">
         <img
           src="../static/img/USA.jpg"
           alt="passport4"
@@ -248,17 +249,15 @@
           id="passport-img-5"
         />
       </div>
-    </section>
-    <!-- <section class="section2">
-      <div class="text-container">
-        <h1 class="section1Text wellcome">웰컴</h1>
-        <h1 class="section1Text text">을</h1>
-        <h1 class="section1Text choice">선택</h1>
-        <h1 class="section1Text text">하는</h1>
+      <div class="section1-container text">
+        <h1 class="section1-text wellcome">WELL-COME</h1>
+        <h1 class="section1-text text">을</h1>
+        <h1 class="section1-text choice">선택</h1>
+        <h1 class="section1-text text">하는</h1>
         <br />
-        <h1 class="section1Text text">이유?</h1>
+        <h1 class="section1-text text">이유?</h1>
       </div>
-    </section> -->
+    </section>
     <section class="section2">
       <ul class="why-list">
         <li class="why-item why-item1">选择“웰컴”的五大理由</li>
@@ -268,7 +267,13 @@
         <li class="why-item why-item5">选择“웰컴”的五大理由</li>
       </ul>
     </section>
-    <section class="section4"></section>
+    <section class="section3">
+      <div class="section3-container text">
+        <h1 class="section3-text open">외국인법인 설립은</h1>
+        <h1 class="section3-text wellcome">WELL-COME에서</h1>
+        <button></button>
+      </div>
+    </section>
 
     <script>
       const passportImages = document.querySelectorAll('img');
