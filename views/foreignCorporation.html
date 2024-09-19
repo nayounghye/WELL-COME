@@ -117,7 +117,7 @@
           </div>
 
           <div class="ccv-form-multiStep" id="ccv-intellectualPropertyRights">
-            <div class="ccv-scoreDisplay" id="scoreDisplay">나</div>
+            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">지식재산권을 보유하고 있요?</div>
             <div class="ccv-formButton" data-value="지재권 미보유">아니오</div>
             <div class="ccv-formButton" data-value="지재권 보유">예</div>
@@ -568,7 +568,7 @@
           }
         }
 
-        calcSelectedScore(currentStep);
+        // calcSelectedScore(currentStep);
         // updateScoreDisplay();
 
         if (
@@ -578,7 +578,7 @@
           ) &&
           !document.querySelector("#ccv-overseasEdu .ccv-formButton.selected")
         ) {
-          warringPopup("학력을 선택해주세요.");
+          warringPopup("국가를 선택해주세요.");
           return;
         } else if (
           currentStep === 1 &&
@@ -586,7 +586,7 @@
             "#ccv-userKoreanTestLevel .ccv-formButton.selected"
           )
         ) {
-          warringPopup("한국어 능력시험 점수를 선택해주세요.");
+          warringPopup("거주 국가 선택해주세요.");
           return;
         } else if (
           currentStep === 2 &&
@@ -594,13 +594,13 @@
             "#ccv-intellectualPropertyRights .ccv-formButton.selected"
           )
         ) {
-          warringPopup("지식재산권 보유 여부를 선택해주세요.");
+          warringPopup("회사의 형식을 선택해주세요.");
           return;
         } else if (
           currentStep === 3 &&
           !document.querySelector("#ccv-patent .ccv-formButton.selected")
         ) {
-          warringPopup("지식재산권 종류와 상태를 선택해주세요.");
+          warringPopup("회사의 설립지역을 선택해주세요.");
           return;
         } else if (
           currentStep === 4 &&
@@ -608,7 +608,7 @@
             "#ccv-isCorporationEstablished .ccv-formButton.selected"
           )
         ) {
-          warringPopup("법인 설립 여부를 선택해주세요.");
+          warringPopup("법인명을 입력해주세요");
           return;
         } else if (
           currentStep === 5 &&
@@ -616,7 +616,7 @@
             "#ccv-isCorporationEstablished-sub .ccv-formButton.selected"
           )
         ) {
-          warringPopup("투자유치 이력을 선택해주세요.");
+          warringPopup("이름과 연락처를 입력해주세요.");
           return;
         }
 
