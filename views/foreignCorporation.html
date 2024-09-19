@@ -569,7 +569,7 @@
         }
 
         calcSelectedScore(currentStep);
-        updateScoreDisplay();
+        // updateScoreDisplay();
 
         if (
           currentStep === 0 &&
@@ -679,7 +679,7 @@
         currentStepElement.classList.remove("active");
 
         prevCalcSelectScore(currentStep);
-        updateScoreDisplay();
+        // updateScoreDisplay();
 
         currentStep = prevStep;
         if (prevStep === 4 || prevStep === 6) {
@@ -997,82 +997,82 @@
         }
       }
 
-      function showResult(resultId) {
-        const resultElement = document.getElementById(resultId);
-        resultElement.style.display = "flex";
-        resultElement.style.flexDirection = "column";
-        resultElement.style.gap = "20px";
+      //   function showResult(resultId) {
+      //     const resultElement = document.getElementById(resultId);
+      //     resultElement.style.display = "flex";
+      //     resultElement.style.flexDirection = "column";
+      //     resultElement.style.gap = "20px";
 
-        // 현재 점수와 도달해야 하는 점수 표시
-        let scoreDisplayElement;
-        if (resultId === "ccv-result-applicationConditionMet") {
-          scoreDisplayElement = document.getElementById(
-            "applicationConditionMet-score"
-          );
-          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
-        } else if (resultId === "ccv-result-applicationConditionNotMet") {
-          scoreDisplayElement = document.getElementById(
-            "applicationConditionNotMet-score"
-          );
-          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+      //     // 현재 점수와 도달해야 하는 점수 표시
+      //     let scoreDisplayElement;
+      //     if (resultId === "ccv-result-applicationConditionMet") {
+      //       scoreDisplayElement = document.getElementById(
+      //         "applicationConditionMet-score"
+      //       );
+      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+      //     } else if (resultId === "ccv-result-applicationConditionNotMet") {
+      //       scoreDisplayElement = document.getElementById(
+      //         "applicationConditionNotMet-score"
+      //       );
+      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
 
-          // 서비스 제공 버튼 표시
-          if (scoreVisa < 80) {
-            const ipSelection = document.querySelector(
-              "#ccv-intellectualPropertyRights .ccv-formButton.selected"
-            );
-            const ipSelectType = document.querySelector(
-              '#ccv-intellectualPropertyRights-sub .ccv-radio-SelectBox input[type="radio"]:checked'
-            );
-            const corpEstablishment = document.querySelector(
-              "#ccv-isCorporationEstablished .ccv-formButton.selected"
-            );
+      //       // 서비스 제공 버튼 표시
+      //       if (scoreVisa < 80) {
+      //         const ipSelection = document.querySelector(
+      //           "#ccv-intellectualPropertyRights .ccv-formButton.selected"
+      //         );
+      //         const ipSelectType = document.querySelector(
+      //           '#ccv-intellectualPropertyRights-sub .ccv-radio-SelectBox input[type="radio"]:checked'
+      //         );
+      //         const corpEstablishment = document.querySelector(
+      //           "#ccv-isCorporationEstablished .ccv-formButton.selected"
+      //         );
 
-            if (
-              ipSelection.dataset.value === "지재권 미보유" ||
-              (ipSelection.dataset.value === "지재권 보유" &&
-                ipSelectType.value === "design")
-            ) {
-              document.getElementById("service-patentSupport").style.display =
-                "block";
-            }
-            if (
-              corpEstablishment &&
-              corpEstablishment.dataset.value === "미설립"
-            ) {
-              document.getElementById(
-                "service-corpEstablishmentSupport"
-              ).style.display = "block";
-            }
-            const oasisSelections = document.querySelectorAll(
-              "#ccv-isStartupProgramCompleted .ccv-formButton"
-            );
-            let allSelected = true;
-            oasisSelections.forEach((button) => {
-              if (!button.classList.contains("selected")) {
-                allSelected = false;
-              }
-            });
-            if (!allSelected) {
-              document.getElementById("service-oasisSupport").style.display =
-                "block";
-            }
-          }
-        } else if (resultId === "ccv-result-basicConditionNotMet") {
-          scoreDisplayElement = document.getElementById(
-            "basicConditionNotMet-score"
-          );
-          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
-          scoreDisplayElement.style.color = "red";
-        }
-      }
+      //         if (
+      //           ipSelection.dataset.value === "지재권 미보유" ||
+      //           (ipSelection.dataset.value === "지재권 보유" &&
+      //             ipSelectType.value === "design")
+      //         ) {
+      //           document.getElementById("service-patentSupport").style.display =
+      //             "block";
+      //         }
+      //         if (
+      //           corpEstablishment &&
+      //           corpEstablishment.dataset.value === "미설립"
+      //         ) {
+      //           document.getElementById(
+      //             "service-corpEstablishmentSupport"
+      //           ).style.display = "block";
+      //         }
+      //         const oasisSelections = document.querySelectorAll(
+      //           "#ccv-isStartupProgramCompleted .ccv-formButton"
+      //         );
+      //         let allSelected = true;
+      //         oasisSelections.forEach((button) => {
+      //           if (!button.classList.contains("selected")) {
+      //             allSelected = false;
+      //           }
+      //         });
+      //         if (!allSelected) {
+      //           document.getElementById("service-oasisSupport").style.display =
+      //             "block";
+      //         }
+      //       }
+      //     } else if (resultId === "ccv-result-basicConditionNotMet") {
+      //       scoreDisplayElement = document.getElementById(
+      //         "basicConditionNotMet-score"
+      //       );
+      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+      //       scoreDisplayElement.style.color = "red";
+      //     }
+      //   }
 
-      function updateScoreDisplay() {
-        const scoreDisplayElements = document.querySelectorAll("#scoreDisplay");
-        scoreDisplayElements.forEach((element) => {
-          element.textContent = `현재 점수: ${scoreVisa}`;
-        });
-      }
+      //   function updateScoreDisplay() {
+      //     const scoreDisplayElements = document.querySelectorAll("#scoreDisplay");
+      //     scoreDisplayElements.forEach((element) => {
+      //       element.textContent = `현재 점수: ${scoreVisa}`;
+      //     });
+      //   }
 
       function saveStateToLocalStorage() {
         const selectedOptions = document.querySelectorAll(
