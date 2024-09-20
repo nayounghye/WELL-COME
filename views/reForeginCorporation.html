@@ -63,19 +63,18 @@
       <div class="ccv-mainSection">
         <div class="ccv-multiDisplaySection-form">
           <!-- 폼 섹션 시작 -->
-          <div class="ccv-form-multiStep active" id="ccv-userEduAbility">
-            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+          <div class="ccv-form-multiStep active" id="ccv-userCountry">
             <div class="ccv-form-title">내국인/ 외국인 선택해주세요</div>
-            <div class="ccv-userEduCountry">
+            <div class="ccv-userCountry">
               <div class="ccv-radio-SelectBox" data-edu="domestic">
-                <input type="radio" name="education_level" value="domestic" />
+                <input type="radio" name="selectCountry" value="domestic" />
                 <img
                   src="https://cdn.imweb.me/thumbnail/20240822/17ae2878ffff8.png"
                 />
                 내국인
               </div>
               <div class="ccv-radio-SelectBox" data-edu="overseas">
-                <input type="radio" name="education_level" value="overseas" />
+                <input type="radio" name="selectCountry" value="overseas" />
                 <img
                   src="https://cdn.imweb.me/thumbnail/20240822/736184391d2cb.png"
                 />
@@ -83,26 +82,12 @@
               </div>
             </div>
 
-            <!-- <div id="ccv-domesticEdu">
-              <div class="ccv-formButton" data-value="전문학사">전문학사</div>
-              <div class="ccv-formButton" data-value="학사">학사</div>
-              <div class="ccv-formButton" data-value="석사">석사</div>
-              <div class="ccv-formButton" data-value="박사">박사</div>
-              <div class="ccv-formButton" data-value="None">해당사항없음</div>
-            </div>
-            <div id="ccv-overseasEdu">
-              <div class="ccv-formButton" data-value="학사">학사</div>
-              <div class="ccv-formButton" data-value="석사">석사</div>
-              <div class="ccv-formButton" data-value="박사">박사</div>
-              <div class="ccv-formButton" data-value="None">해당사항없음</div>
-            </div> -->
             <div class="ccv-activeControlBox">
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
           </div>
 
-          <div class="ccv-form-multiStep" id="ccv-userKoreanTestLevel">
-            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+          <div class="ccv-form-multiStep" id="ccv-userResidenceArea">
             <div class="ccv-form-title">거주 지역</div>
             <div class="ccv-formButton" data-value="한국 거주">한국 거주</div>
             <div class="ccv-formButton" data-value="해외 거주">해외 거주</div>
@@ -112,8 +97,7 @@
             </div>
           </div>
 
-          <div class="ccv-form-multiStep" id="ccv-intellectualPropertyRights">
-            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+          <div class="ccv-form-multiStep" id="ccv-EstablishmentType">
             <div class="ccv-form-title">회사의 설립 형태 선택해주세요</div>
             <div class="ccv-formButton" data-value="주식회사">주식회사</div>
             <div class="ccv-formButton" data-value="유한책임회사">
@@ -126,13 +110,10 @@
             </div>
           </div>
 
-          <div
-            class="ccv-form-multiStep"
-            id="ccv-intellectualPropertyRights-sub"
-          >
+          <div class="ccv-form-multiStep" id="ccv-establishmentType">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">회사의 설립 지역을 선택해주세요</div>
-            <div class="ccv-intellectualPropertyRightsType">
+            <div class="ccv-establishmentTypeDropBox">
               <div class="ccv-radio-SelectBox">
                 <input type="radio" name="intellectual_property" value="tech" />
 
@@ -148,18 +129,13 @@
                 경기도
               </div>
             </div>
-            <div class="ccv-hiddenForm" id="ccv-patent">
-              <div class="ccv-formButton" data-value="출원">출원완료</div>
-              <div class="ccv-formButton" data-value="등록">등록완료</div>
-            </div>
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
           </div>
 
-          <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished">
-            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+          <div class="ccv-form-multiStep" id="ccv-corporatioName">
             <div class="ccv-form-title">법인명을 작성해주세요</div>
             <input type="text" class="ccv-formButton" placeholder="법인명" />
             <div class="ccv-activeControlBox">
@@ -168,12 +144,10 @@
             </div>
           </div>
 
-          <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
-            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+          <div class="ccv-form-multiStep" id="ccv-name_contactNum">
             <div class="ccv-form-title">이름과 연락처를 작성해주세요</div>
             <input type="text" class="ccv-formButton" placeholder="이름" />
             <input type="text" class="ccv-formButton" placeholder="연락처" />
-
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
@@ -204,94 +178,9 @@
             </div> -->
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
-              <div class="ccv-nextButton">결과보기</div>
+              <div class="ccv-nextButton">상담 받기</div>
             </div>
           </div>
-
-          <div class="ccv-form-multiStep" id="ccv-scoreResultLoading">
-            <div class="ccv-form-title">결과 확인중입니다...</div>
-            <div class="ccv-loading-spinner">
-              <div class="ccv-spinner"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ccv-multiDisplaySection-result">
-          <!-- 결과 섹션 시작 -->
-          <div
-            class="ccv-result-multiResult"
-            id="ccv-result-basicConditionNotMet"
-          >
-            <div class="ccv-form-title">
-              아쉬워요<br />창업비자신청 기본조건이 충족하지 않습니다.
-            </div>
-            <!-- 현재 점수와 도달해야 하는 점수 표시 -->
-            <div class="ccv-scoreDisplay" id="basicConditionNotMet-score"></div>
-            <div class="ccv-formButton">
-              <a href="https://well-come.info" class="homeButton"
-                >홈으로 돌아가기</a
-              >
-            </div>
-          </div>
-          <div
-            class="ccv-result-multiResult"
-            id="ccv-result-applicationConditionMet"
-          >
-            <div class="ccv-form-title">
-              축하합니다!<br />창업비자 신청조건이 충족되었습니다.
-            </div>
-            <!-- 현재 점수와 도달해야 하는 점수 표시 -->
-            <div
-              class="ccv-scoreDisplay"
-              id="applicationConditionMet-score"
-            ></div>
-            <div class="ccv-formButton pulse resultStrong">
-              <a href="#" id="ccv-application-visa">비자 신청하러 가기</a>
-            </div>
-            <div class="ccv-formButton">
-              <a href="#" class="homeButton">홈으로 돌아가기</a>
-            </div>
-          </div>
-          <div
-            class="ccv-result-multiResult"
-            id="ccv-result-applicationConditionNotMet"
-          >
-            <div class="ccv-form-title">
-              바로 시작하기에 <span>점수가 부족</span>해요&#x1F613;<br />창업
-              비자 점수 웰컴에서 만들어요!!
-            </div>
-            <!-- 현재 점수와 도달해야 하는 점수 표시 -->
-            <div
-              class="ccv-scoreDisplay"
-              id="applicationConditionNotMet-score"
-            ></div>
-
-            <!-- 조건에 따른 서비스 제공 목록 -->
-            <div class="ccv-form-title">
-              웰컴비자에서 지원하는 점수 향상 서비스
-              <ul>
-                <li id="service-patentSupport" style="display: none">
-                  지재권 출원 지원
-                </li>
-                <li id="service-corpEstablishmentSupport" style="display: none">
-                  법인 설립 지원
-                </li>
-                <li id="service-investCorp" style="display: none">
-                  투자 컨설팅
-                </li>
-                <li id="service-oasisSupport" style="display: none">
-                  OASIS 교육 지원
-                </li>
-              </ul>
-            </div>
-            <div class="ccv-formButton pulse resultStrong">
-              <a href="#" id="ccv-consulting-visa">비자 컨설팅 받기</a>
-            </div>
-            <div class="ccv-formButton">
-              <a href="#" class="homeButton">홈으로 돌아가기</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
