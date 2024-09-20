@@ -470,7 +470,9 @@
 
       const submitInfo = () => {
         console.log('submitInfo');
+        const sumbmitLimit = localStorage.getItem('6 selectedValue')
 
+        if (submitLimit && submitLimit.length >= 2) {
         document.getElementById("input_txt_2adc34665cda5").value =
         localStorage.getItem('0 selectedValue')
         document.getElementById("input_txt_79cacd4241db5").value =
@@ -487,6 +489,7 @@
         localStorage.getItem('6 selectedValue')
         SITE_FORM.confirmInputForm('w202409197a6d11485bedb','N');
         localStorage.clear();
+        }
       }
     </script>
     
