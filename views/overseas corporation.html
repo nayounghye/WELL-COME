@@ -11,7 +11,9 @@
           height: 130vh;
         }
   
-        /** 섹션 1 */
+        /** 
+        섹션 1
+         */
         .section1 {
           width: 100%;
           height: 100%;
@@ -162,7 +164,10 @@
           }
         }
   
-        /* 섹션 2 */
+        
+        /** 
+        섹션 2
+         */
         .section2 {
           /* opacity: 0; */
           width: 100%;
@@ -216,6 +221,50 @@
         .why-item5 {
           background-color: #9dd0ff;
         }
+
+        /** 
+        섹션 3
+         */
+         .section3 {
+          /* opacity: 0; */
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          transition: opacity 0.5s ease;
+        }
+
+        .section3-container.text {
+          width: 100%;
+          height: 100%;
+          display:flex;
+          flex-direction:column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .section3-container.text > h2 {
+   font-size: 80px;
+   margin: 0;
+        }
+
+        .section3-container.text > button {
+        background-color: #0f8cff;
+        color: #ffffff;
+        cursor: pointer;
+        width: 100%;
+        max-width: 350px;
+        height: 55px;
+        font-size: 24px;
+        line-height: 55px;
+        margin-top: 30px;
+        text-align: center;
+        border-radius: 5px;
+        transition: background-color 0.2s ease-in-out;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border: none; /* 버튼 테두리 제거 */
+        outline: none; /* 포커스 시 테두리 제거 */
+        }
+
       </style>
   </head>
   <body>
@@ -279,15 +328,11 @@
         </ul>
       </section> -->
       <section class="section3">
-        <div class="section3-container text">
-            <div class="section3-container text">
-          <span class="section3-text open">외국인법인 설립은</span>
-          </div>
-          <div class="section3-container text">
-          <span class="section3-text wellcome">WELL-COME에서</span>
-          </div>
-          <button></button>
-        </div>
+             <div class="section3-container text">
+             <h2> 외국인법인 설립은 </h2>
+             <h2 style="color: #0f8cff;">WELL-COME에서!</h2>
+             <button>바로 시작하기</button>
+             </div>
       </section>
   </body>
 </html>
