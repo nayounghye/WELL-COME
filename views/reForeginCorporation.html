@@ -351,10 +351,13 @@
           ];
     
           const rule = validationRules[currentStep];
-          const storedValue = localStorage.getItem(`${currentStep} selectedValue`);
+          const storedValue = localStorage.getItem(`${currentStep} selectedValue`)
+          // 카드 기반 유효성 검사 및 입력 필드 검사 통합
           if (!storedValue) {
-              // warringPopup(rule.message); // 경고 메시지 표시
-              // return false; // 유효성 검사 실패
+            console.log(' !inputFields =>', inputFields);
+            console.log('카드기반 유효성');
+            warringPopup(rule.message); // 경고 메시지 표시
+            return false; // 유효성 검사 실패
           }
           return true; // 유효성 검사 통과
         }
@@ -410,11 +413,11 @@
           }
         }
 
-      // 카드 클릭 이벤트 추가
-      const radioSelectBoxes = document.querySelectorAll('.ccv-radio-SelectBox');
-      radioSelectBoxes.forEach(box => {
-        box.addEventListener('click', handleCardClick); // 카드 클릭 시 값 저장
-      });
+        // 카드 클릭 이벤트 추가
+        const radioSelectBoxes = document.querySelectorAll('.ccv-radio-SelectBox');
+        radioSelectBoxes.forEach(box => {
+          box.addEventListener('click', handleCardClick); // 카드 클릭 시 값 저장
+        });
 
       // input text 추가 이벤트
       const textSelectBoxes = document.querySelectorAll('.ccv-formButton');
@@ -423,7 +426,7 @@
           const value = e.target.value;
           const placeholder = input.placeholder;
 
-          saveToLocalStorage(`${currentStep} selectedValue - ${placeholder}`, value);
+          saveToLocalStorage(`${currentStep} selectedValue`, value);
 
           console.log(`Saved ${placeholder}: ${value}`); // 저장된 값 확인용
         });
