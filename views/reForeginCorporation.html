@@ -256,15 +256,25 @@
             </div>
           </section>
 
-          <section class="fc-form-multiStep" id="fc-isCorporationEstablished-sub">
-            <div class="fc-scoreDisplay" id="scoreDisplay"></div>
-            <div class="fc-form-title">请填写姓名和联系方式</div>
-            <input type="text" class="fc-formButton" placeholder="姓名" />
-            <input type="text" class="fc-formButton" placeholder="联系方式" />
+          <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
+            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+            <div class="ccv-form-title">이름을 작성해주세요</div>
+            <input type="text" class="ccv-formButton" placeholder="이름" />
 
-            <div class="fc-activeControlBox">
-              <div class="fc-prevButton">上一步</div>
-              <div class="fc-nextButton deactiveted">提交</div>
+            <div class="ccv-activeControlBox">
+              <div class="ccv-prevButton">이전</div>
+              <div class="ccv-nextButton deactiveted">다음</div>
+            </div>
+          </section>
+
+          <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
+            <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
+            <div class="ccv-form-title">연락처를 작성해주세요</div>
+            <input type="text" class="ccv-formButton" placeholder="연락처" />
+
+            <div class="ccv-activeControlBox">
+              <div class="ccv-prevButton">이전</div>
+              <div class="ccv-nextButton deactiveted" onclick="submitInfo()">상담받기</div>
             </div>
           </section>
           </div>
@@ -345,8 +355,13 @@
             },
             {
               step: 5,
-              message: "请输入姓名和联系方式",
-              selector: "#fc-isCorporationEstablished-sub .fc-formButton.selected",
+              message: "이름을 입력해주세요.",
+              selector: "#ccv-isCorporationEstablished-sub .ccv-formButton.selected",
+            },
+            {
+              step: 6,
+              message: "연락처를 입력해주세요.",
+              selector: "#ccv-isCorporationEstablished-sub .ccv-formButton.selected",
             },
           ];
     
@@ -354,7 +369,6 @@
           const storedValue = localStorage.getItem(`${currentStep} selectedValue`)
           // 카드 기반 유효성 검사 및 입력 필드 검사 통합
           if (!storedValue) {
-            
             console.log('카드기반 유효성');
             warringPopup(rule.message); // 경고 메시지 표시
             return false; // 유효성 검사 실패
@@ -451,6 +465,31 @@
         // 초기 단계 표시
         showStep(currentStep);
       });
+
+
+      
+
+      const submitInfo = () => {
+        console.log('submitInfo');
+
+        document.getElementById("input_txt_2adc34665cda5").value =
+        localStorage.getItem('0 selectedValue')
+        document.getElementById("input_txt_79cacd4241db5").value =
+        localStorage.getItem('1 selectedValue')
+        document.getElementById("input_txt_D44y508KH2").value =
+        localStorage.getItem('2 selectedValue')
+        document.getElementById("input_txt_186pTBK084").value =
+        localStorage.getItem('3 selectedValue')
+        document.getElementById("input_txt_1RBdDI3aF0").value =
+        localStorage.getItem('4 selectedValue')
+        document.getElementById("input_txt_T53Ny7dP83").value =
+        localStorage.getItem('5 selectedValue')
+        document.getElementById("input_txt_6vvJcU7o8Q").value =
+        localStorage.getItem('6 selectedValue')
+        
+        SITE_FORM.confirmInputForm("addFormw202409197a6d11485bedb", "N");
+        localStorage.clear();
+      }
     </script>
     
   </body>
