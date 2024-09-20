@@ -358,57 +358,57 @@
       // Google Translate 초기화 함수
       function googleTranslateElementInit() {
         const browserLang = getBrowserLanguage(); // 브라우저 언어 감지
-        const supportedLanguages = ["en", "ko", "zh-CN"]; // 지원하는 언어 목록
+        const supportedLanguages = ['en', 'ko', 'zh-CN']; // 지원하는 언어 목록
 
         // 브라우저 언어가 지원되는 경우 해당 언어로 페이지를 자동 번역
         const pageLanguage = supportedLanguages.includes(browserLang)
           ? browserLang
-          : "ko"; // 기본값은 한국어로 설정
+          : 'ko'; // 기본값은 한국어로 설정
 
         new google.translate.TranslateElement(
           {
             pageLanguage: pageLanguage,
-            includedLanguages: "en,ko,zh-CN", // 필요한 언어 목록
+            includedLanguages: 'en,ko,zh-CN', // 필요한 언어 목록
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: true,
           },
-          "google_translate_element"
+          'google_translate_element'
         );
       }
 
       // Google Translate 스크립트 로드
       (function () {
-        var gtScript = document.createElement("script");
-        gtScript.type = "text/javascript";
+        var gtScript = document.createElement('script');
+        gtScript.type = 'text/javascript';
         gtScript.async = true;
         gtScript.src =
-          "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-        var s = document.getElementsByTagName("script")[0];
+          'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(gtScript, s);
       })();
     </script>
     <script>
       function moveToContainer() {
         const dropMenuContainer = document.getElementById(
-          "cc-dropMenu-container"
+          'cc-dropMenu-container'
         );
 
-        if (dropMenuContainer.classList.contains("cc-hidden")) {
-          dropMenuContainer.classList.remove("cc-hidden");
-          dropMenuContainer.classList.remove("move-out");
-          dropMenuContainer.classList.add("move-in");
+        if (dropMenuContainer.classList.contains('cc-hidden')) {
+          dropMenuContainer.classList.remove('cc-hidden');
+          dropMenuContainer.classList.remove('move-out');
+          dropMenuContainer.classList.add('move-in');
         } else {
-          dropMenuContainer.classList.remove("move-in");
-          dropMenuContainer.classList.add("move-out");
+          dropMenuContainer.classList.remove('move-in');
+          dropMenuContainer.classList.add('move-out');
           setTimeout(() => {
-            dropMenuContainer.classList.add("cc-hidden");
+            dropMenuContainer.classList.add('cc-hidden');
           }, 500);
         }
       }
 
       document
-        .getElementById("cc-nev-dropdown")
-        .addEventListener("click", function () {
+        .getElementById('cc-nev-dropdown')
+        .addEventListener('click', function () {
           moveToContainer();
         });
     </script>
@@ -427,8 +427,8 @@
         const radio = box.querySelector('input[type="radio"]');
         if (radio) {
           radio.checked = true;
-          updateSelection(box, ".ccv-radio-SelectBox", "selected");
-          localStorage.setItem("ccv-edu-type", box.getAttribute("data-edu")); // 교육 유형 저장
+          updateSelection(box, '.ccv-radio-SelectBox', 'selected');
+          localStorage.setItem('ccv-edu-type', box.getAttribute('data-edu')); // 교육 유형 저장
           toggleEducationForm(radio.value);
           checkNextButtonState();
         }
@@ -436,66 +436,66 @@
 
       function selectFormButton(button, parentSelector) {
         if (
-          parentSelector === "ccv-result-basicConditionNotMet" ||
-          parentSelector === "ccv-result-applicationConditionMet" ||
-          parentSelector === "ccv-result-applicationConditionNotMet"
+          parentSelector === 'ccv-result-basicConditionNotMet' ||
+          parentSelector === 'ccv-result-applicationConditionMet' ||
+          parentSelector === 'ccv-result-applicationConditionNotMet'
         )
           return;
 
         updateSelection(
           button,
           `#${parentSelector} .ccv-formButton`,
-          "selected"
+          'selected'
         );
 
         const parentElement = document.querySelector(`#${parentSelector}`);
-        let nextButton = parentElement.querySelector(".ccv-nextButton");
+        let nextButton = parentElement.querySelector('.ccv-nextButton');
 
         if (!nextButton) {
           nextButton =
-            parentElement.parentElement.querySelector(".ccv-nextButton");
+            parentElement.parentElement.querySelector('.ccv-nextButton');
         }
 
         if (nextButton) {
-          nextButton.classList.remove("deactiveted");
+          nextButton.classList.remove('deactiveted');
         }
 
-        const selectedValue = button.getAttribute("data-value");
+        const selectedValue = button.getAttribute('data-value');
         switch (parentSelector) {
-          case "ccv-domesticEdu":
-          case "ccv-overseasEdu":
-            const eduType = localStorage.getItem("ccv-edu-type");
+          case 'ccv-domesticEdu':
+          case 'ccv-overseasEdu':
+            const eduType = localStorage.getItem('ccv-edu-type');
             localStorage.setItem(
-              "ccv-userEduAbility",
+              'ccv-userEduAbility',
               `${eduType} ${selectedValue}`
             );
             break;
-          case "ccv-userKoreanTestLevel":
-            localStorage.setItem("ccv-userKoreanTestLevel", selectedValue);
+          case 'ccv-userKoreanTestLevel':
+            localStorage.setItem('ccv-userKoreanTestLevel', selectedValue);
             break;
-          case "ccv-intellectualPropertyRights":
+          case 'ccv-intellectualPropertyRights':
             localStorage.setItem(
-              "ccv-intellectualPropertyRights",
-              selectedValue === "지재권 보유" ? "보유" : "없음"
+              'ccv-intellectualPropertyRights',
+              selectedValue === '지재권 보유' ? '보유' : '없음'
             );
             break;
-          case "ccv-isCorporationEstablished":
+          case 'ccv-isCorporationEstablished':
             localStorage.setItem(
-              "ccv-isCorporationEstablished",
-              selectedValue === "설립" ? "설립" : "없음"
+              'ccv-isCorporationEstablished',
+              selectedValue === '설립' ? '설립' : '없음'
             );
             break;
-          case "ccv-isCorporationEstablished-sub":
+          case 'ccv-isCorporationEstablished-sub':
             localStorage.setItem(
-              "ccv-isCorporationEstablished-sub",
+              'ccv-isCorporationEstablished-sub',
               selectedValue
             );
             break;
-          case "ccv-isStartupProgramCompleted":
-            if (button.classList.contains("selected")) {
+          case 'ccv-isStartupProgramCompleted':
+            if (button.classList.contains('selected')) {
               localStorage.setItem(
-                "ccv-isStartupProgramCompleted",
-                getAllSelectedOasisPrograms().join(", ")
+                'ccv-isStartupProgramCompleted',
+                getAllSelectedOasisPrograms().join(', ')
               );
             } else {
               removeSelectedOasisProgram(selectedValue);
@@ -512,24 +512,24 @@
       }
 
       function toggleEducationForm(educationType) {
-        const domesticEdu = document.getElementById("ccv-domesticEdu");
-        const overseasEdu = document.getElementById("ccv-overseasEdu");
+        const domesticEdu = document.getElementById('ccv-domesticEdu');
+        const overseasEdu = document.getElementById('ccv-overseasEdu');
         const intellectualPropertyRights =
-          document.getElementById("ccv-patent");
+          document.getElementById('ccv-patent');
 
-        if (educationType === "domestic") {
-          domesticEdu.classList.add("active");
-          overseasEdu.classList.remove("active");
-        } else if (educationType === "overseas") {
-          domesticEdu.classList.remove("active");
-          overseasEdu.classList.add("active");
+        if (educationType === 'domestic') {
+          domesticEdu.classList.add('active');
+          overseasEdu.classList.remove('active');
+        } else if (educationType === 'overseas') {
+          domesticEdu.classList.remove('active');
+          overseasEdu.classList.add('active');
         } else {
-          intellectualPropertyRights.classList.add("active");
+          intellectualPropertyRights.classList.add('active');
         }
       }
 
       function goToNextStep() {
-        const steps = document.querySelectorAll(".ccv-form-multiStep");
+        const steps = document.querySelectorAll('.ccv-form-multiStep');
         const currentStepElement = steps[currentStep];
 
         if (currentStep === 0) {
@@ -541,16 +541,16 @@
               '#ccv-overseasEdu .ccv-formButton[data-value="None"].selected'
             );
           if (noneSelection) {
-            currentStepElement.classList.remove("active");
+            currentStepElement.classList.remove('active');
             document.getElementById(
-              "ccv-result-basicConditionNotMet"
-            ).style.display = "flex";
+              'ccv-result-basicConditionNotMet'
+            ).style.display = 'flex';
             document.getElementById(
-              "ccv-result-basicConditionNotMet"
-            ).style.flexDirection = "column";
+              'ccv-result-basicConditionNotMet'
+            ).style.flexDirection = 'column';
             document.getElementById(
-              "ccv-result-basicConditionNotMet"
-            ).style.gap = "20px";
+              'ccv-result-basicConditionNotMet'
+            ).style.gap = '20px';
             return;
           }
         }
@@ -561,109 +561,109 @@
         if (
           currentStep === 0 &&
           !document.querySelector(
-            "#ccv-domesticEdu .ccv-formButton.selected"
+            '#ccv-domesticEdu .ccv-formButton.selected'
           ) &&
-          !document.querySelector("#ccv-overseasEdu .ccv-formButton.selected")
+          !document.querySelector('#ccv-overseasEdu .ccv-formButton.selected')
         ) {
-          warringPopup("국가를 선택해주세요.");
+          warringPopup('학력을 선택해주세요.');
           return;
         } else if (
           currentStep === 1 &&
           !document.querySelector(
-            "#ccv-userKoreanTestLevel .ccv-formButton.selected"
+            '#ccv-userKoreanTestLevel .ccv-formButton.selected'
           )
         ) {
-          warringPopup("거주 국가 선택해주세요.");
+          warringPopup('한국어 능력시험 점수를 선택해주세요.');
           return;
         } else if (
           currentStep === 2 &&
           !document.querySelector(
-            "#ccv-intellectualPropertyRights .ccv-formButton.selected"
+            '#ccv-intellectualPropertyRights .ccv-formButton.selected'
           )
         ) {
-          warringPopup("회사의 형식을 선택해주세요.");
+          warringPopup('지식재산권 보유 여부를 선택해주세요.');
           return;
         } else if (
           currentStep === 3 &&
-          !document.querySelector("#ccv-patent .ccv-formButton.selected")
+          !document.querySelector('#ccv-patent .ccv-formButton.selected')
         ) {
-          warringPopup("회사의 설립지역을 선택해주세요.");
+          warringPopup('지식재산권 종류와 상태를 선택해주세요.');
           return;
         } else if (
           currentStep === 4 &&
           !document.querySelector(
-            "#ccv-isCorporationEstablished .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished .ccv-formButton.selected'
           )
         ) {
-          warringPopup("법인명을 입력해주세요");
+          warringPopup('법인 설립 여부를 선택해주세요.');
           return;
         } else if (
           currentStep === 5 &&
           !document.querySelector(
-            "#ccv-isCorporationEstablished-sub .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished-sub .ccv-formButton.selected'
           )
         ) {
-          warringPopup("이름과 연락처를 입력해주세요.");
+          warringPopup('투자유치 이력을 선택해주세요.');
           return;
         }
 
-        currentStepElement.classList.remove("active");
+        currentStepElement.classList.remove('active');
 
         prevStep = currentStep;
 
         if (currentStep === 2) {
           const ipSelection = document.querySelector(
-            "#ccv-intellectualPropertyRights .ccv-formButton.selected"
+            '#ccv-intellectualPropertyRights .ccv-formButton.selected'
           ).dataset.value;
-          if (ipSelection !== "지재권 보유") currentStep += 1;
+          if (ipSelection !== '지재권 보유') currentStep += 1;
         }
         if (currentStep === 3) {
           const ipTypeElement = document.querySelector(
             'input[name="intellectual_property"]:checked'
           );
           const ipStatusElement = document.querySelector(
-            "#ccv-patent .ccv-formButton.selected"
+            '#ccv-patent .ccv-formButton.selected'
           );
           if (ipTypeElement && ipStatusElement) {
             const ipType = ipTypeElement.value;
-            const ipStatus = ipStatusElement.getAttribute("data-value");
-            localStorage.setItem("ccv-intellectualPropertyType", ipType);
-            localStorage.setItem("ccv-intellectualPropertyStatus", ipStatus);
+            const ipStatus = ipStatusElement.getAttribute('data-value');
+            localStorage.setItem('ccv-intellectualPropertyType', ipType);
+            localStorage.setItem('ccv-intellectualPropertyStatus', ipStatus);
           }
         }
         if (currentStep === 4) {
           const corporationSelection = document.querySelector(
-            "#ccv-isCorporationEstablished .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished .ccv-formButton.selected'
           ).dataset.value;
-          if (corporationSelection !== "설립") currentStep += 1;
+          if (corporationSelection !== '설립') currentStep += 1;
         }
         currentStep += 1;
 
         if (currentStep < steps.length) {
-          steps[currentStep].classList.add("active");
+          steps[currentStep].classList.add('active');
         }
         // 결과 페이지로 이동
         if (currentStep === steps.length - 1) {
           setTimeout(() => {
             const loadingSection = document.getElementById(
-              "ccv-scoreResultLoading"
+              'ccv-scoreResultLoading'
             );
-            loadingSection.classList.remove("active");
+            loadingSection.classList.remove('active');
             if (scoreVisa >= 80) {
-              showResult("ccv-result-applicationConditionMet");
+              showResult('ccv-result-applicationConditionMet');
             } else {
               saveStateToLocalStorage();
-              showResult("ccv-result-applicationConditionNotMet");
+              showResult('ccv-result-applicationConditionNotMet');
             }
           }, 1500); // 1.5초 후 결과 페이지로 이동
         }
       }
 
       function goToPrevStep() {
-        const steps = document.querySelectorAll(".ccv-form-multiStep");
+        const steps = document.querySelectorAll('.ccv-form-multiStep');
         const currentStepElement = steps[currentStep];
 
-        currentStepElement.classList.remove("active");
+        currentStepElement.classList.remove('active');
 
         prevCalcSelectScore(currentStep);
         // updateScoreDisplay();
@@ -675,143 +675,143 @@
         prevStep -= 1;
 
         if (currentStep >= 0) {
-          steps[currentStep].classList.add("active");
+          steps[currentStep].classList.add('active');
         }
       }
 
       function warringPopup(message) {
-        const warringModal = document.querySelector(".cc-warringModal");
+        const warringModal = document.querySelector('.cc-warringModal');
         const warringMessage = document.querySelector(
-          ".cc-warringModal-message"
+          '.cc-warringModal-message'
         );
-        const warringButton = document.querySelector(".cc-warringModal-button");
+        const warringButton = document.querySelector('.cc-warringModal-button');
 
         warringMessage.textContent = message;
-        warringModal.style.display = "flex";
-        warringButton.addEventListener("click", () => {
-          warringModal.style.display = "none";
+        warringModal.style.display = 'flex';
+        warringButton.addEventListener('click', () => {
+          warringModal.style.display = 'none';
         });
       }
 
       function checkNextButtonState() {
         const nextButton = document.querySelector(
-          "#ccv-isStartupProgramCompleted .ccv-nextButton"
+          '#ccv-isStartupProgramCompleted .ccv-nextButton'
         );
         if (
           document.querySelectorAll(
-            "#ccv-isStartupProgramCompleted .ccv-formButton.selected"
+            '#ccv-isStartupProgramCompleted .ccv-formButton.selected'
           ).length > 0
         ) {
-          nextButton.classList.remove("deactiveted");
+          nextButton.classList.remove('deactiveted');
         } else {
-          nextButton.classList.add("deactiveted");
+          nextButton.classList.add('deactiveted');
         }
       }
 
       function calcSelectedScore(currentStep) {
         if (currentStep === 0) {
           const domesticEdu = document.querySelector(
-            "#ccv-domesticEdu .ccv-formButton.selected"
+            '#ccv-domesticEdu .ccv-formButton.selected'
           );
           const overseasEdu = document.querySelector(
-            "#ccv-overseasEdu .ccv-formButton.selected"
+            '#ccv-overseasEdu .ccv-formButton.selected'
           );
           if (domesticEdu) {
-            if (domesticEdu.dataset.value === "전문학사") scoreVisa += 0;
-            else if (domesticEdu.dataset.value === "학사") scoreVisa += 5;
-            else if (domesticEdu.dataset.value === "석사") scoreVisa += 5;
-            else if (domesticEdu.dataset.value === "박사") scoreVisa += 10;
+            if (domesticEdu.dataset.value === '전문학사') scoreVisa += 0;
+            else if (domesticEdu.dataset.value === '학사') scoreVisa += 5;
+            else if (domesticEdu.dataset.value === '석사') scoreVisa += 5;
+            else if (domesticEdu.dataset.value === '박사') scoreVisa += 10;
           } else if (overseasEdu) {
-            if (overseasEdu.dataset.value === "학사") scoreVisa += 5;
-            else if (overseasEdu.dataset.value === "석사") scoreVisa += 5;
-            else if (overseasEdu.dataset.value === "박사") scoreVisa += 10;
+            if (overseasEdu.dataset.value === '학사') scoreVisa += 5;
+            else if (overseasEdu.dataset.value === '석사') scoreVisa += 5;
+            else if (overseasEdu.dataset.value === '박사') scoreVisa += 10;
           }
         } else if (currentStep === 1) {
           const koreanTest = document.querySelector(
-            "#ccv-userKoreanTestLevel .ccv-formButton.selected"
+            '#ccv-userKoreanTestLevel .ccv-formButton.selected'
           );
           if (koreanTest) {
-            if (koreanTest.dataset.value === "TOPIK 3급 이상") scoreVisa += 10;
-            else if (koreanTest.dataset.value === "TOPIK 3급 미만")
+            if (koreanTest.dataset.value === 'TOPIK 3급 이상') scoreVisa += 10;
+            else if (koreanTest.dataset.value === 'TOPIK 3급 미만')
               scoreVisa += 0;
           }
         } else if (currentStep === 3) {
           const intellectualPropertyRightsType = document.querySelector(
-            "#ccv-intellectualPropertyRights-sub"
+            '#ccv-intellectualPropertyRights-sub'
           );
           if (
             intellectualPropertyRightsType.querySelector(
               '.ccv-radio-SelectBox input[type="radio"]:checked'
-            ).value === "tech"
+            ).value === 'tech'
           ) {
             if (
               intellectualPropertyRightsType.querySelector(
-                ".ccv-formButton.selected"
-              ).dataset.value === "출원"
+                '.ccv-formButton.selected'
+              ).dataset.value === '출원'
             )
               scoreVisa += 20;
             else if (
               intellectualPropertyRightsType.querySelector(
-                ".ccv-formButton.selected"
-              ).dataset.value === "등록"
+                '.ccv-formButton.selected'
+              ).dataset.value === '등록'
             )
               scoreVisa += 80;
           } else if (
             intellectualPropertyRightsType.querySelector(
               '.ccv-radio-SelectBox input[type="radio"]:checked'
-            ).value === "design"
+            ).value === 'design'
           ) {
             if (
               intellectualPropertyRightsType.querySelector(
-                ".ccv-formButton.selected"
-              ).dataset.value === "출원"
+                '.ccv-formButton.selected'
+              ).dataset.value === '출원'
             )
               scoreVisa += 10;
             else if (
               intellectualPropertyRightsType.querySelector(
-                ".ccv-formButton.selected"
-              ).dataset.value === "등록"
+                '.ccv-formButton.selected'
+              ).dataset.value === '등록'
             )
               scoreVisa += 50;
           }
         } else if (currentStep === 4) {
           const corporationEstablished = document.querySelector(
-            "#ccv-isCorporationEstablished .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished .ccv-formButton.selected'
           );
           if (corporationEstablished) {
-            if (corporationEstablished.dataset.value === "설립")
+            if (corporationEstablished.dataset.value === '설립')
               scoreVisa += 15;
-            else if (corporationEstablished.dataset.value === "미설립")
+            else if (corporationEstablished.dataset.value === '미설립')
               scoreVisa += 0;
           }
         } else if (currentStep === 5) {
           const corporationEstablishedSub = document.querySelector(
-            "#ccv-isCorporationEstablished-sub .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished-sub .ccv-formButton.selected'
           );
           if (corporationEstablishedSub) {
             if (
-              corporationEstablishedSub.dataset.value === "1억원 이상 투자유치"
+              corporationEstablishedSub.dataset.value === '1억원 이상 투자유치'
             )
               scoreVisa += 80;
             else if (
-              corporationEstablishedSub.dataset.value === "투자유치 이력없음"
+              corporationEstablishedSub.dataset.value === '투자유치 이력없음'
             )
               scoreVisa += 0;
           }
         } else if (currentStep === 6) {
           const startupProgramCompleted = document.querySelector(
-            "#ccv-isStartupProgramCompleted .ccv-formButton.selected"
+            '#ccv-isStartupProgramCompleted .ccv-formButton.selected'
           );
           if (startupProgramCompleted) {
-            if (startupProgramCompleted.dataset.value === "OASIS-1")
+            if (startupProgramCompleted.dataset.value === 'OASIS-1')
               scoreVisa += 15;
-            if (startupProgramCompleted.dataset.value === "OASIS-2")
+            if (startupProgramCompleted.dataset.value === 'OASIS-2')
               scoreVisa += 25;
-            if (startupProgramCompleted.dataset.value === "OASIS-4")
+            if (startupProgramCompleted.dataset.value === 'OASIS-4')
               scoreVisa += 25;
-            if (startupProgramCompleted.dataset.value === "OASIS-5")
+            if (startupProgramCompleted.dataset.value === 'OASIS-5')
               scoreVisa += 15;
-            if (startupProgramCompleted.dataset.value === "OASIS-7")
+            if (startupProgramCompleted.dataset.value === 'OASIS-7')
               scoreVisa += 15;
           }
         }
@@ -821,7 +821,7 @@
         const selectedPrograms = [];
         document
           .querySelectorAll(
-            "#ccv-isStartupProgramCompleted .ccv-formButton.selected"
+            '#ccv-isStartupProgramCompleted .ccv-formButton.selected'
           )
           .forEach((button) => {
             selectedPrograms.push(button.dataset.value);
@@ -835,235 +835,234 @@
         );
         if (programs.length > 0) {
           localStorage.setItem(
-            "ccv-isStartupProgramCompleted",
-            programs.join(", ")
+            'ccv-isStartupProgramCompleted',
+            programs.join(', ')
           );
         } else {
-          localStorage.setItem("ccv-isStartupProgramCompleted", "없음");
+          localStorage.setItem('ccv-isStartupProgramCompleted', '없음');
         }
       }
 
       function gotoInit() {
-        const steps = document.querySelectorAll(".ccv-form-multiStep");
-        const buttons = document.querySelectorAll(".ccv-formButton");
-        const resultbox = document.querySelectorAll(".ccv-result-multiResult");
+        const steps = document.querySelectorAll('.ccv-form-multiStep');
+        const buttons = document.querySelectorAll('.ccv-formButton');
+        const resultbox = document.querySelectorAll('.ccv-result-multiResult');
 
-        const domesticEdu = document.getElementById("ccv-domesticEdu");
-        const overseasEdu = document.getElementById("ccv-overseasEdu");
-        const patent = document.getElementById("ccv-patent");
+        const domesticEdu = document.getElementById('ccv-domesticEdu');
+        const overseasEdu = document.getElementById('ccv-overseasEdu');
+        const patent = document.getElementById('ccv-patent');
         const radioButtons = document.querySelectorAll(
           '.ccv-radio-SelectBox .input[type="radio"]'
         );
 
-        steps.forEach((step) => step.classList.remove("active"));
-        steps[0].classList.add("active");
+        steps.forEach((step) => step.classList.remove('active'));
+        steps[0].classList.add('active');
 
-        buttons.forEach((button) => button.classList.remove("selected"));
-        buttons.forEach((button) => button.classList.remove("deactiveted"));
+        buttons.forEach((button) => button.classList.remove('selected'));
+        buttons.forEach((button) => button.classList.remove('deactiveted'));
 
-        radioButtons.forEach((radio) => radio.removeAttribute("checked"));
+        radioButtons.forEach((radio) => radio.removeAttribute('checked'));
 
-        resultbox.forEach((box) => (box.style.display = "none"));
+        resultbox.forEach((box) => (box.style.display = 'none'));
 
-        domesticEdu.classList.remove("active");
-        overseasEdu.classList.remove("active");
+        domesticEdu.classList.remove('active');
+        overseasEdu.classList.remove('active');
 
-        patent.classList.remove("active");
+        patent.classList.remove('active');
 
         currentStep = 0;
         prevStep = 0;
         scoreVisa = 0;
         updateScoreDisplay();
         document.getElementById(
-          "ccv-result-basicConditionNotMet"
-        ).style.display = "none";
+          'ccv-result-basicConditionNotMet'
+        ).style.display = 'none';
         document.getElementById(
-          "ccv-result-applicationConditionMet"
-        ).style.display = "none";
+          'ccv-result-applicationConditionMet'
+        ).style.display = 'none';
         document.getElementById(
-          "ccv-result-applicationConditionNotMet"
-        ).style.display = "none";
+          'ccv-result-applicationConditionNotMet'
+        ).style.display = 'none';
       }
 
       function prevCalcSelectScore(currentStep) {
         if (currentStep === 1) {
           const domesticEdu = document.querySelector(
-            "#ccv-domesticEdu .ccv-formButton.selected"
+            '#ccv-domesticEdu .ccv-formButton.selected'
           );
           const overseasEdu = document.querySelector(
-            "#ccv-overseasEdu .ccv-formButton.selected"
+            '#ccv-overseasEdu .ccv-formButton.selected'
           );
 
           if (domesticEdu) {
-            if (domesticEdu.dataset.value === "전문학사") scoreVisa -= 0;
-            else if (domesticEdu.dataset.value === "학사") scoreVisa -= 5;
-            else if (domesticEdu.dataset.value === "석사") scoreVisa -= 5;
-            else if (domesticEdu.dataset.value === "박사") scoreVisa -= 10;
+            if (domesticEdu.dataset.value === '전문학사') scoreVisa -= 0;
+            else if (domesticEdu.dataset.value === '학사') scoreVisa -= 5;
+            else if (domesticEdu.dataset.value === '석사') scoreVisa -= 5;
+            else if (domesticEdu.dataset.value === '박사') scoreVisa -= 10;
           } else if (overseasEdu) {
-            if (overseasEdu.dataset.value === "학사") scoreVisa -= 5;
-            else if (overseasEdu.dataset.value === "석사") scoreVisa -= 5;
-            else if (overseasEdu.dataset.value === "박사") scoreVisa -= 10;
+            if (overseasEdu.dataset.value === '학사') scoreVisa -= 5;
+            else if (overseasEdu.dataset.value === '석사') scoreVisa -= 5;
+            else if (overseasEdu.dataset.value === '박사') scoreVisa -= 10;
           }
         } else if (currentStep === 2) {
           const koreanTest = document.querySelector(
-            "#ccv-userKoreanTestLevel .ccv-formButton.selected"
+            '#ccv-userKoreanTestLevel .ccv-formButton.selected'
           );
           if (koreanTest) {
-            if (koreanTest.dataset.value === "TOPIK 3급 이상") scoreVisa -= 10;
-            else if (koreanTest.dataset.value === "TOPIK 3급 미만")
+            if (koreanTest.dataset.value === 'TOPIK 3급 이상') scoreVisa -= 10;
+            else if (koreanTest.dataset.value === 'TOPIK 3급 미만')
               scoreVisa -= 0;
           }
         } else if (currentStep === 4) {
           const ipRights = document.querySelector(
-            "#ccv-intellectualPropertyRights .ccv-formButton.selected"
+            '#ccv-intellectualPropertyRights .ccv-formButton.selected'
           );
           const intellectualPropertyRightsType = document.querySelector(
-            "#ccv-intellectualPropertyRights-sub"
+            '#ccv-intellectualPropertyRights-sub'
           );
-          if (ipRights.dataset.value === "지재권 보유") {
+          if (ipRights.dataset.value === '지재권 보유') {
             if (
               intellectualPropertyRightsType.querySelector(
                 '.ccv-radio-SelectBox input[type="radio"]:checked'
-              ).value === "tech"
+              ).value === 'tech'
             ) {
               if (
                 intellectualPropertyRightsType.querySelector(
-                  ".ccv-formButton.selected"
-                ).dataset.value === "출원"
+                  '.ccv-formButton.selected'
+                ).dataset.value === '출원'
               )
                 scoreVisa -= 20;
               else if (
                 intellectualPropertyRightsType.querySelector(
-                  ".ccv-formButton.selected"
-                ).dataset.value === "등록"
+                  '.ccv-formButton.selected'
+                ).dataset.value === '등록'
               )
                 scoreVisa -= 80;
             } else if (
               intellectualPropertyRightsType.querySelector(
                 '.ccv-radio-SelectBox input[type="radio"]:checked'
-              ).value === "design"
+              ).value === 'design'
             ) {
               if (
                 intellectualPropertyRightsType.querySelector(
-                  ".ccv-formButton.selected"
-                ).dataset.value === "출원"
+                  '.ccv-formButton.selected'
+                ).dataset.value === '출원'
               )
                 scoreVisa -= 10;
               else if (
                 intellectualPropertyRightsType.querySelector(
-                  ".ccv-formButton.selected"
-                ).dataset.value === "등록"
+                  '.ccv-formButton.selected'
+                ).dataset.value === '등록'
               )
                 scoreVisa -= 50;
             }
             intellectualPropertyRightsType
-              .querySelector(".ccv-formButton.selected")
-              .classList.remove("selected");
+              .querySelector('.ccv-formButton.selected')
+              .classList.remove('selected');
           }
         } else if (currentStep === 5) {
           const corporationEstablished = document.querySelector(
-            "#ccv-isCorporationEstablished .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished .ccv-formButton.selected'
           );
-          if (corporationEstablished.dataset.value === "설립") scoreVisa -= 15;
-          else if (corporationEstablished.dataset.value === "미설립")
+          if (corporationEstablished.dataset.value === '설립') scoreVisa -= 15;
+          else if (corporationEstablished.dataset.value === '미설립')
             scoreVisa -= 0;
         } else if (currentStep === 6) {
           const corporationEstablishedSub = document.querySelector(
-            "#ccv-isCorporationEstablished-sub .ccv-formButton.selected"
+            '#ccv-isCorporationEstablished-sub .ccv-formButton.selected'
           );
           if (corporationEstablishedSub) {
             if (
-              corporationEstablishedSub.dataset.value === "1억원 이상 투자유치"
+              corporationEstablishedSub.dataset.value === '1억원 이상 투자유치'
             )
               scoreVisa -= 80;
             else if (
-              corporationEstablishedSub.dataset.value === "투자유치 이력없음"
+              corporationEstablishedSub.dataset.value === '투자유치 이력없음'
             )
               scoreVisa -= 0;
           }
         }
       }
+      function showResult(resultId) {
+        const resultElement = document.getElementById(resultId);
+        resultElement.style.display = 'flex';
+        resultElement.style.flexDirection = 'column';
+        resultElement.style.gap = '20px';
 
-      //   function showResult(resultId) {
-      //     const resultElement = document.getElementById(resultId);
-      //     resultElement.style.display = "flex";
-      //     resultElement.style.flexDirection = "column";
-      //     resultElement.style.gap = "20px";
+        // 현재 점수와 도달해야 하는 점수 표시
+        let scoreDisplayElement;
+        if (resultId === 'ccv-result-applicationConditionMet') {
+          scoreDisplayElement = document.getElementById(
+            'applicationConditionMet-score'
+          );
+          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+        } else if (resultId === 'ccv-result-applicationConditionNotMet') {
+          scoreDisplayElement = document.getElementById(
+            'applicationConditionNotMet-score'
+          );
+          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
 
-      //     // 현재 점수와 도달해야 하는 점수 표시
-      //     let scoreDisplayElement;
-      //     if (resultId === "ccv-result-applicationConditionMet") {
-      //       scoreDisplayElement = document.getElementById(
-      //         "applicationConditionMet-score"
-      //       );
-      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
-      //     } else if (resultId === "ccv-result-applicationConditionNotMet") {
-      //       scoreDisplayElement = document.getElementById(
-      //         "applicationConditionNotMet-score"
-      //       );
-      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+          // 서비스 제공 버튼 표시
+          if (scoreVisa < 80) {
+            const ipSelection = document.querySelector(
+              '#ccv-intellectualPropertyRights .ccv-formButton.selected'
+            );
+            const ipSelectType = document.querySelector(
+              '#ccv-intellectualPropertyRights-sub .ccv-radio-SelectBox input[type="radio"]:checked'
+            );
+            const corpEstablishment = document.querySelector(
+              '#ccv-isCorporationEstablished .ccv-formButton.selected'
+            );
 
-      //       // 서비스 제공 버튼 표시
-      //       if (scoreVisa < 80) {
-      //         const ipSelection = document.querySelector(
-      //           "#ccv-intellectualPropertyRights .ccv-formButton.selected"
-      //         );
-      //         const ipSelectType = document.querySelector(
-      //           '#ccv-intellectualPropertyRights-sub .ccv-radio-SelectBox input[type="radio"]:checked'
-      //         );
-      //         const corpEstablishment = document.querySelector(
-      //           "#ccv-isCorporationEstablished .ccv-formButton.selected"
-      //         );
+            if (
+              ipSelection.dataset.value === '지재권 미보유' ||
+              (ipSelection.dataset.value === '지재권 보유' &&
+                ipSelectType.value === 'design')
+            ) {
+              document.getElementById('service-patentSupport').style.display =
+                'block';
+            }
+            if (
+              corpEstablishment &&
+              corpEstablishment.dataset.value === '미설립'
+            ) {
+              document.getElementById(
+                'service-corpEstablishmentSupport'
+              ).style.display = 'block';
+            }
+            const oasisSelections = document.querySelectorAll(
+              '#ccv-isStartupProgramCompleted .ccv-formButton'
+            );
+            let allSelected = true;
+            oasisSelections.forEach((button) => {
+              if (!button.classList.contains('selected')) {
+                allSelected = false;
+              }
+            });
+            if (!allSelected) {
+              document.getElementById('service-oasisSupport').style.display =
+                'block';
+            }
+          }
+        } else if (resultId === 'ccv-result-basicConditionNotMet') {
+          scoreDisplayElement = document.getElementById(
+            'basicConditionNotMet-score'
+          );
+          scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
+          scoreDisplayElement.style.color = 'red';
+        }
+      }
 
-      //         if (
-      //           ipSelection.dataset.value === "지재권 미보유" ||
-      //           (ipSelection.dataset.value === "지재권 보유" &&
-      //             ipSelectType.value === "design")
-      //         ) {
-      //           document.getElementById("service-patentSupport").style.display =
-      //             "block";
-      //         }
-      //         if (
-      //           corpEstablishment &&
-      //           corpEstablishment.dataset.value === "미설립"
-      //         ) {
-      //           document.getElementById(
-      //             "service-corpEstablishmentSupport"
-      //           ).style.display = "block";
-      //         }
-      //         const oasisSelections = document.querySelectorAll(
-      //           "#ccv-isStartupProgramCompleted .ccv-formButton"
-      //         );
-      //         let allSelected = true;
-      //         oasisSelections.forEach((button) => {
-      //           if (!button.classList.contains("selected")) {
-      //             allSelected = false;
-      //           }
-      //         });
-      //         if (!allSelected) {
-      //           document.getElementById("service-oasisSupport").style.display =
-      //             "block";
-      //         }
-      //       }
-      //     } else if (resultId === "ccv-result-basicConditionNotMet") {
-      //       scoreDisplayElement = document.getElementById(
-      //         "basicConditionNotMet-score"
-      //       );
-      //       scoreDisplayElement.textContent = `현재 점수: ${scoreVisa}, 목표 점수: 80`;
-      //       scoreDisplayElement.style.color = "red";
-      //     }
-      //   }
-
-      //   function updateScoreDisplay() {
-      //     const scoreDisplayElements = document.querySelectorAll("#scoreDisplay");
-      //     scoreDisplayElements.forEach((element) => {
-      //       element.textContent = `현재 점수: ${scoreVisa}`;
-      //     });
-      //   }
+      function updateScoreDisplay() {
+        const scoreDisplayElements = document.querySelectorAll('#scoreDisplay');
+        scoreDisplayElements.forEach((element) => {
+          element.textContent = `현재 점수: ${scoreVisa}`;
+        });
+      }
 
       function saveStateToLocalStorage() {
         const selectedOptions = document.querySelectorAll(
-          ".ccv-formButton.selected"
+          '.ccv-formButton.selected'
         );
         selectedOptions.forEach((option) => {
           localStorage.setItem(option.parentElement.id, option.dataset.value);
@@ -1072,84 +1071,84 @@
 
       // 유저 입력 정보를 폼의 해당 필드에 전달
       function visa_submitInfo() {
-        // 내/외국인
-        document.getElementById("input_2adc34665cda5").value =
-          document.querySelector(".ccv-input-name").value;
-        document.getElementById("input_txt_NfS66eC714").value =
-          document.querySelector(".ccv-input-email").value;
-        document.getElementById("input_txt_2ed1d42de6db1").value =
-          document.querySelector(".ccv-input-phone").value;
-        document.getElementById("input_txt_ddd7bc247bfed").value =
-          localStorage.getItem("ccv-userEduAbility") || "없음";
-        document.getElementById("input_txt_DvmOxh6BpV").value =
-          localStorage.getItem("ccv-userKoreanTestLevel") || "없음";
-        document.getElementById("input_txt_CT785i0xE1").value =
-          localStorage.getItem("ccv-intellectualPropertyRights") || "없음";
-        document.getElementById("input_txt_01977756V0").value =
-          localStorage.getItem("ccv-intellectualPropertyType") || "없음";
-        document.getElementById("input_txt_oW2O4098Om").value =
-          localStorage.getItem("ccv-intellectualPropertyStatus") || "없음";
-        document.getElementById("input_txt_23hT256VV6").value =
-          localStorage.getItem("ccv-isCorporationEstablished") || "없음";
-        document.getElementById("input_txt_88x43J0Ta7").value =
-          localStorage.getItem("ccv-isCorporationEstablished-sub") || "없음";
-        document.getElementById("input_txt_31B2J1Za88").value =
-          localStorage.getItem("ccv-isStartupProgramCompleted") || "없음";
+        // 유저 입력 정보를 폼의 해당 필드에 전달
+        document.getElementById('input_txt_b15643fce7e26').value =
+          document.querySelector('.ccv-input-name').value;
+        document.getElementById('input_txt_NfS66eC714').value =
+          document.querySelector('.ccv-input-email').value;
+        document.getElementById('input_txt_2ed1d42de6db1').value =
+          document.querySelector('.ccv-input-phone').value;
+        document.getElementById('input_txt_ddd7bc247bfed').value =
+          localStorage.getItem('ccv-userEduAbility') || '없음';
+        document.getElementById('input_txt_DvmOxh6BpV').value =
+          localStorage.getItem('ccv-userKoreanTestLevel') || '없음';
+        document.getElementById('input_txt_CT785i0xE1').value =
+          localStorage.getItem('ccv-intellectualPropertyRights') || '없음';
+        document.getElementById('input_txt_01977756V0').value =
+          localStorage.getItem('ccv-intellectualPropertyType') || '없음';
+        document.getElementById('input_txt_oW2O4098Om').value =
+          localStorage.getItem('ccv-intellectualPropertyStatus') || '없음';
+        document.getElementById('input_txt_23hT256VV6').value =
+          localStorage.getItem('ccv-isCorporationEstablished') || '없음';
+        document.getElementById('input_txt_88x43J0Ta7').value =
+          localStorage.getItem('ccv-isCorporationEstablished-sub') || '없음';
+        document.getElementById('input_txt_31B2J1Za88').value =
+          localStorage.getItem('ccv-isStartupProgramCompleted') || '없음';
 
         // 폼 제출
-        SITE_FORM.confirmInputForm("w2024082259f02e163f56b", "N");
+        SITE_FORM.confirmInputForm('w2024082259f02e163f56b', 'N');
 
         // 모달 닫기 및 로컬스토리지 초기화
-        document.querySelector(".cc-infInputModal").style.display = "none";
-        document.querySelector(".infoInputModal-content").style.display =
-          "none";
+        document.querySelector('.cc-infInputModal').style.display = 'none';
+        document.querySelector('.infoInputModal-content').style.display =
+          'none';
         localStorage.clear();
       }
 
-      document.querySelectorAll(".ccv-radio-SelectBox").forEach((box) => {
-        box.addEventListener("click", () => {
+      document.querySelectorAll('.ccv-radio-SelectBox').forEach((box) => {
+        box.addEventListener('click', () => {
           selectRadioButton(box);
         });
       });
 
-      document.querySelectorAll(".ccv-formButton").forEach((button) => {
-        button.addEventListener("click", () => {
+      document.querySelectorAll('.ccv-formButton').forEach((button) => {
+        button.addEventListener('click', () => {
           selectFormButton(button, button.parentElement.id);
         });
       });
 
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("ccv-nextButton")) {
+      document.addEventListener('click', function (event) {
+        if (event.target.classList.contains('ccv-nextButton')) {
           goToNextStep();
-        } else if (event.target.classList.contains("ccv-prevButton")) {
+        } else if (event.target.classList.contains('ccv-prevButton')) {
           goToPrevStep();
         }
       });
 
       document
-        .querySelectorAll("#ccv-isStartupProgramCompleted .ccv-formButton")
+        .querySelectorAll('#ccv-isStartupProgramCompleted .ccv-formButton')
         .forEach((button) => {
-          button.addEventListener("click", () => {
-            if (button.classList.contains("selected")) {
-              button.classList.remove("selected");
+          button.addEventListener('click', () => {
+            if (button.classList.contains('selected')) {
+              button.classList.remove('selected');
               removeSelectedOasisProgram(button.dataset.value);
             } else {
-              button.classList.add("selected");
+              button.classList.add('selected');
               localStorage.setItem(
-                "ccv-isStartupProgramCompleted",
-                getAllSelectedOasisPrograms().join(", ")
+                'ccv-isStartupProgramCompleted',
+                getAllSelectedOasisPrograms().join(', ')
               );
             }
             checkNextButtonState();
           });
 
           if (localStorage.getItem(button.id)) {
-            button.classList.add("selected");
+            button.classList.add('selected');
           }
         });
 
-      document.querySelectorAll(".homeButton").forEach((button) => {
-        button.addEventListener("click", function (event) {
+      document.querySelectorAll('.homeButton').forEach((button) => {
+        button.addEventListener('click', function (event) {
           event.preventDefault();
           gotoInit();
           localStorage.clear();
@@ -1158,22 +1157,22 @@
       });
 
       document
-        .getElementById("ccv-application-visa")
-        .addEventListener("click", function (event) {
+        .getElementById('ccv-application-visa')
+        .addEventListener('click', function (event) {
           event.preventDefault();
-          document.querySelector(".cc-infInputModal").style.display = "block";
+          document.querySelector('.cc-infInputModal').style.display = 'block';
         });
 
       document
-        .getElementById("ccv-consulting-visa")
-        .addEventListener("click", function (event) {
+        .getElementById('ccv-consulting-visa')
+        .addEventListener('click', function (event) {
           event.preventDefault();
-          document.querySelector(".cc-infInputModal").style.display = "block";
+          document.querySelector('.cc-infInputModal').style.display = 'block';
         });
 
       document
-        .querySelector(".infoInputModal-button")
-        .addEventListener("click", visa_submitInfo);
+        .querySelector('.infoInputModal-button')
+        .addEventListener('click', visa_submitInfo);
     </script>
   </body>
 </html>
