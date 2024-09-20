@@ -63,11 +63,11 @@
       <div class="ccv-mainSection">
         <div class="ccv-multiDisplaySection-form">
           <!-- 폼 섹션 시작 -->
-          <div class="ccv-form-multiStep active" id="ccv-userEduAbility">
+          <section class="ccv-form-multiStep active" id="ccv-userEduAbility">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">내국인/ 외국인 선택해주세요</div>
+            <div class="ccv-form-title">내국인 / 외국인 선택해주세요</div>
             <div class="ccv-userEduCountry">
-              <div class="ccv-radio-SelectBox" data-edu="domestic">
+              <div class="ccv-radio-SelectBox" data-edu="내국인">
                 <input type="radio" name="education_level" value="domestic" />
                 <img
                   src="https://cdn.imweb.me/thumbnail/20240822/17ae2878ffff8.png"
@@ -75,7 +75,7 @@
                 내국인
               </div>
               <div class="ccv-radio-SelectBox" data-edu="overseas">
-                <input type="radio" name="education_level" value="overseas" />
+                <input type="radio" name="education_level" value="외국인" />
                 <img
                   src="https://cdn.imweb.me/thumbnail/20240822/736184391d2cb.png"
                 />
@@ -85,66 +85,168 @@
             <div class="ccv-activeControlBox">
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
-          </div>
+          </section>
 
-          <div class="ccv-form-multiStep" id="ccv-">
+          <section class="ccv-form-multiStep" id="ccv-">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">거주 지역</div>
-            <div class="ccv-formButton" data-value="한국 거주">한국 거주</div>
-            <div class="ccv-formButton" data-value="해외 거주">해외 거주</div>
+            <div class="ccv-radio-SelectBox" data-value="한국 거주">
+              <input type="radio" name="education_level" value="한국 거주" />
+              한국 거주</div>
+            <div class="ccv-radio-SelectBox" data-value="해외 거주">
+              <input type="radio" name="education_level" value="해외 거주" />
+              해외 거주</div>
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
-          </div>
+          </section>
 
-          <div class="ccv-form-multiStep" id="ccv-intellectualPropertyRights">
+          <section class="ccv-form-multiStep" id="ccv-intellectualPropertyRights">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">회사의 설립 형태 선택해주세요</div>
-            <div class="ccv-formButton" data-value="주식회사">주식회사</div>
-            <div class="ccv-formButton" data-value="유한책임회사">
+            <div class="ccv-radio-SelectBox" data-value="주식회사">
+              <input type="radio" name="education_level" value="주식회사" />
+              주식회사</div>
+            <div class="ccv-radio-SelectBox" data-value="유한책임회사">
+              <input type="radio" name="education_level" value="유한책임회사" />
               유한책임회사
             </div>
-            <div class="ccv-formButton" data-value="유한회사">유한회사</div>
+            <div class="ccv-radio-SelectBox" data-value="유한회사">
+              <input type="radio" name="education_level" value="유한회사" />
+              유한회사</div>
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
-          </div>
+          </section>
 
-          <div
+          <section
             class="ccv-form-multiStep"
             id="ccv-intellectualPropertyRights-sub"
           >
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">회사의 설립 지역을 선택해주세요</div>
-            <div class="ccv-intellectualPropertyRightsType">
-              <div class="ccv-radio-SelectBox">
-                <input type="radio" name="intellectual_property" value="tech" />
-
-                서울
-              </div>
-              <div class="ccv-radio-SelectBox">
-                <input
-                  type="radio"
-                  name="intellectual_property"
-                  value="design"
-                />
-
-                경기도
-              </div>
+            <div class="ccv-radio-SelectBox">
+              <select name="intellectual_property" class="ccv-dropdown" id="regionSelect" size="4">
+                <option value="강원특별자치도 강릉시">강원특별자치도 강릉시</option>,
+                <option value="강원특별자치도 동해시">강원특별자치도 동해시</option>,
+                <option value="강원특별자치도 삼척시">강원특별자치도 삼척시</option>,
+                <option value="강원특별자치도 속초시">강원특별자치도 속초시</option>,
+                <option value="강원특별자치도 원주시">강원특별자치도 원주시</option>,
+                <option value="강원특별자치도 춘천시">강원특별자치도 춘천시</option>,
+                <option value="강원특별자치도 태백시">강원특별자치도 태백시</option>,
+                <option value="경기도 고양시">경기도 고양시</option>,
+                <option value="경기도 과천시">경기도 과천시</option>,
+                <option value="경기도 광명시">경기도 광명시</option>,
+                <option value="경기도 광주시">경기도 광주시</option>,
+                <option value="경기도 구리시">경기도 구리시</option>,
+                <option value="경기도 군포시">경기도 군포시</option>,
+                <option value="경기도 김포시">경기도 김포시</option>,
+                <option value="경기도 남양주시">경기도 남양주시</option>,
+                <option value="경기도 동두천시">경기도 동두천시</option>,
+                <option value="경기도 부천시">경기도 부천시</option>,
+                <option value="경기도 성남시">경기도 성남시</option>,
+                <option value="경기도 수원시">경기도 수원시</option>,
+                <option value="경기도 시흥시">경기도 시흥시</option>,
+                <option value="경기도 안산시">경기도 안산시</option>,
+                <option value="경기도 안성시">경기도 안성시</option>,
+                <option value="경기도 안양시">경기도 안양시</option>,
+                <option value="경기도 양주시">경기도 양주시</option>,
+                <option value="경기도 여주시">경기도 여주시</option>,
+                <option value="경기도 오산시">경기도 오산시</option>,
+                <option value="경기도 용인시">경기도 용인시</option>,
+                <option value="경기도 의왕시">경기도 의왕시</option>,
+                <option value="경기도 의정부시">경기도 의정부시</option>,
+                <option value="경기도 이천시">경기도 이천시</option>,
+                <option value="경기도 파주시">경기도 파주시</option>,
+                <option value="경기도 평택시">경기도 평택시</option>,
+                <option value="경기도 포천시">경기도 포천시</option>,
+                <option value="경기도 하남시">경기도 하남시</option>,
+                <option value="경기도 화성시">경기도 화성시</option>,
+                <option value="경상남도 거제시">경상남도 거제시</option>,
+                <option value="경상남도 김해시">경상남도 김해시</option>,
+                <option value="경상남도 밀양시">경상남도 밀양시</option>,
+                <option value="경상남도 사천시">경상남도 사천시</option>,
+                <option value="경상남도 양산시">경상남도 양산시</option>,
+                <option value="경상남도 진주시">경상남도 진주시</option>,
+                <option value="경상남도 창원시">경상남도 창원시</option>,
+                <option value="경상남도 통영시">경상남도 통영시</option>,
+                <option value="경상북도 경산시">경상북도 경산시</option>,
+                <option value="경상북도 경주시">경상북도 경주시</option>,
+                <option value="경상북도 구미시">경상북도 구미시</option>,
+                <option value="경상북도 김천시">경상북도 김천시</option>,
+                <option value="경상북도 문경시">경상북도 문경시</option>,
+                <option value="경상북도 상주시">경상북도 상주시</option>,
+                <option value="경상북도 안동시">경상북도 안동시</option>,
+                <option value="경상북도 영주시">경상북도 영주시</option>,
+                <option value="경상북도 영천시">경상북도 영천시</option>,
+                <option value="경상북도 포항시">경상북도 포항시</option>,
+                <option value="광주광역시">광주광역시</option>,
+                <option value="대구광역시">대구광역시</option>,
+                <option value="대전광역시">대전광역시</option>,
+                <option value="부산광역시">부산광역시</option>,
+                <option value="서울특별시 강남구">서울특별시 강남구</option>,
+                <option value="서울특별시 강동구">서울특별시 강동구</option>,
+                <option value="서울특별시 강북구">서울특별시 강북구</option>,
+                <option value="서울특별시 강서구">서울특별시 강서구</option>,
+                <option value="서울특별시 관악구">서울특별시 관악구</option>,
+                <option value="서울특별시 광진구">서울특별시 광진구</option>,
+                <option value="서울특별시 구로구">서울특별시 구로구</option>,
+                <option value="서울특별시 금천구">서울특별시 금천구</option>,
+                <option value="서울특별시 노원구">서울특별시 노원구</option>,
+                <option value="서울특별시 도봉구">서울특별시 도봉구</option>,
+                <option value="서울특별시 동대문구">서울특별시 동대문구</option>,
+                <option value="서울특별시 동작구">서울특별시 동작구</option>,
+                <option value="서울특별시 마포구">서울특별시 마포구</option>,
+                <option value="서울특별시 서대문구">서울특별시 서대문구</option>,
+                <option value="서울특별시 서초구">서울특별시 서초구</option>,
+                <option value="서울특별시 성동구">서울특별시 성동구</option>,
+                <option value="서울특별시 성북구">서울특별시 성북구</option>,
+                <option value="서울특별시 송파구">서울특별시 송파구</option>,
+                <option value="서울특별시 양천구">서울특별시 양천구</option>,
+                <option value="서울특별시 영등포구">서울특별시 영등포구</option>,
+                <option value="서울특별시 용산구">서울특별시 용산구</option>,
+                <option value="서울특별시 은평구">서울특별시 은평구</option>,
+                <option value="서울특별시 종로구">서울특별시 종로구</option>,
+                <option value="서울특별시 중구">서울특별시 중구</option>,
+                <option value="서울특별시 중랑구">서울특별시 중랑구</option>,
+                <option value="울산광역시">울산광역시</option>,
+                <option value="인천광역시">인천광역시</option>,
+                <option value="전라남도 광양시">전라남도 광양시</option>,
+                <option value="전라남도 나주시">전라남도 나주시</option>,
+                <option value="전라남도 목포시">전라남도 목포시</option>,
+                <option value="전라남도 순천시">전라남도 순천시</option>,
+                <option value="전라남도 여수시">전라남도 여수시</option>,
+                <option value="전라북도 군산시">전라북도 군산시</option>,
+                <option value="전라북도 김제시">전라북도 김제시</option>,
+                <option value="전라북도 남원시">전라북도 남원시</option>,
+                <option value="전라북도 익산시">전라북도 익산시</option>,
+                <option value="전라북도 전주시">전라북도 전주시</option>,
+                <option value="전라북도 정읍시">전라북도 정읍시</option>,
+                <option value="충청남도 계룡시">충청남도 계룡시</option>,
+                <option value="충청남도 공주시">충청남도 공주시</option>,
+                <option value="충청남도 논산시">충청남도 논산시</option>,
+                <option value="충청남도 당진시">충청남도 당진시</option>,
+                <option value="충청남도 보령시">충청남도 보령시</option>,
+                <option value="충청남도 서산시">충청남도 서산시</option>,
+                <option value="충청남도 아산시">충청남도 아산시</option>,
+                <option value="충청남도 천안시">충청남도 천안시</option>,
+                <option value="충청북도 제천시">충청북도 제천시</option>,
+                <option value="충청북도 청주시">충청북도 청주시</option>,
+                <option value="충청북도 충주시">충청북도 충주시</option>,
+                <option value="제주도 제주시">제주도 제주시</option>,
+                <option value="제주도 서귀포시">제주도 서귀포시</option>
+                          </select>
             </div>
-            <div class="ccv-hiddenForm" id="ccv-patent">
-              <div class="ccv-formButton" data-value="출원">출원완료</div>
-              <div class="ccv-formButton" data-value="등록">등록완료</div>
-            </div>
+           
             <div class="ccv-activeControlBox">
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
-          </div>
+          </section>
 
-          <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished">
+          <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">법인명을 작성해주세요</div>
             <input type="text" class="ccv-formButton" placeholder="법인명" />
@@ -152,9 +254,9 @@
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
-          </div>
+          </section>
 
-          <div class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
+          <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">이름과 연락처를 작성해주세요</div>
             <input type="text" class="ccv-formButton" placeholder="이름" />
@@ -164,44 +266,20 @@
               <div class="ccv-prevButton">이전</div>
               <div class="ccv-nextButton deactiveted">상담받기</div>
             </div>
-          </div>
-
-          
+          </section>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="cc-warringModal">
+    <section class="cc-warringModal">
       <div class="cc-warringModal-content">
         <div class="cc-warringModal-title">경고</div>
         <div class="cc-warringModal-message"></div>
         <div class="cc-warringModal-button">확인</div>
       </div>
-    </div>
-
-    <div class="cc-infInputModal">
-      <div class="infoInputModal-content">
-        <div class="infInputModal-title"></div>
-        <input
-          type="text"
-          class="ccv-input-name"
-          placeholder="이름을 입력해주세요"
-        />
-        <input
-          type="text"
-          class="ccv-input-email"
-          placeholder="이메일을 입력해주세요"
-        />
-        <input
-          type="text"
-          class="ccv-input-phone"
-          placeholder="전화번호를 입력해주세요"
-        />
-        <div class="infoInputModal-button">제출하기</div>
-      </div>
-    </div>
-
+    </section>
+    </section>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const nextButtons = document.querySelectorAll(".ccv-nextButton");
@@ -210,36 +288,40 @@
     
         let currentStep = 0;
     
+        // 초기 단계에서 로컬 스토리지 초기화
         if (currentStep === 0) {
           localStorage.clear();
         }
     
+        // 주어진 인덱스에 해당하는 단계만 보이도록 설정
         function showStep(index) {
           steps.forEach((step, i) => {
             step.classList.toggle("active", i === index);
           });
         }
     
+        // 경고 팝업을 표시하는 함수
         function warringPopup(message) {
-        const warringModal = document.querySelector(".cc-warringModal");
-        const warringMessage = document.querySelector(
-          ".cc-warringModal-message"
-        );
-        const warringButton = document.querySelector(".cc-warringModal-button");
-
-        warringMessage.textContent = message;
-        warringModal.style.display = "flex";
-        warringButton.addEventListener("click", () => {
-          warringModal.style.display = "none";
-        });
-      }
+          const warringModal = document.querySelector(".cc-warringModal");
+          const warringMessage = document.querySelector(
+            ".cc-warringModal-message"
+          );
+          const warringButton = document.querySelector(".cc-warringModal-button");
     
+          warringMessage.textContent = message;
+          warringModal.style.display = "flex";
+          warringButton.addEventListener("click", () => {
+            warringModal.style.display = "none";
+          });
+        }
+    
+        // 현재 단계에 대한 유효성 검사
         function validateStep() {
           const validationRules = [
             {
               step: 0,
               message: "국가를 선택해주세요.",
-              selector: "#ccv-userEduAbility .ccv-formButton.selected",
+              selector: 'input[name="education_level"]:checked', // 라디오 버튼 체크 확인
             },
             {
               step: 1,
@@ -269,23 +351,42 @@
           ];
     
           const rule = validationRules[currentStep];
-          if (rule && !document.querySelector(rule.selector)) {
-            // warringPopup(rule.message);
-            console.log('warningPopup');
-            console.log(currentStep);
-
-            
-            // return false;
+          const storedValue = localStorage.getItem(`${currentStep} selectedValue`)
+          // 카드 기반 유효성 검사 및 입력 필드 검사 통합
+          if (!storedValue) {
+            console.log(' !inputFields =>', inputFields);
+            console.log('카드기반 유효성');
+            warringPopup(rule.message); // 경고 메시지 표시
+            return false; // 유효성 검사 실패
           }
-          return true;
+          return true; // 유효성 검사 통과
         }
     
+        
+
+        // 로컬 스토리지에 값 저장
         function saveToLocalStorage(key, value) {
           localStorage.setItem(key, value);
-          console.log(localStorage);
-          
+          console.log(localStorage); // 저장된 로컬 스토리지 확인
         }
+
+        // 설립 지역 데이터 리스트
+        const regionSelect = document.getElementById("regionSelect");
+        regionSelect.addEventListener("change", function() {
+          const selectedValue = this.value;
+          console.log(this.value);
+          saveToLocalStorage(`${currentStep} selectedValue`, selectedValue);
+        });
     
+        // 카드 클릭 시 로컬 스토리지에 값 저장
+        function handleCardClick(event) {
+          const selectedRadioValue = event.currentTarget.querySelector('input[type="radio"]');
+          if (selectedRadioValue) {
+            saveToLocalStorage(`${currentStep} selectedValue`, selectedRadioValue.value);
+          } 
+        }
+
+        // 다음 단계로 이동하는 함수
         function goToNextStep() {
           const currentStepElement = steps[currentStep];
     
@@ -294,8 +395,8 @@
           }
     
           currentStepElement.classList.remove("active");
-    
          
+
           currentStep += 1; // 다음 단계로 이동
     
           if (currentStep < steps.length) {
@@ -311,11 +412,33 @@
             }, 1500);
           }
         }
-    
+
+        // 카드 클릭 이벤트 추가
+        const radioSelectBoxes = document.querySelectorAll('.ccv-radio-SelectBox');
+        radioSelectBoxes.forEach(box => {
+          box.addEventListener('click', handleCardClick); // 카드 클릭 시 값 저장
+        });
+
+      // input text 추가 이벤트
+      const textSelectBoxes = document.querySelectorAll('.ccv-formButton');
+      textSelectBoxes.forEach((input) => {
+        input.addEventListener('input', (e) => {
+          const value = e.target.value;
+          const placeholder = input.placeholder;
+
+          saveToLocalStorage(`${currentStep} selectedValue`, value);
+
+          console.log(`Saved ${placeholder}: ${value}`); // 저장된 값 확인용
+        });
+      });
+      
+        // 다음 버튼 클릭 시 goToNextStep 호출
         nextButtons.forEach((button) => {
-          button.addEventListener("click", goToNextStep); // goToNextStep 호출
+          button.addEventListener("click", goToNextStep);
+          
         });
     
+        // 이전 버튼 클릭 시 이전 단계로 이동
         prevButtons.forEach((button) => {
           button.addEventListener("click", () => {
             if (currentStep > 0) {
@@ -323,7 +446,7 @@
               showStep(currentStep);
             }
           });
-        });
+        }); 
     
         // 초기 단계 표시
         showStep(currentStep);
