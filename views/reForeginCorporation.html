@@ -82,26 +82,12 @@
                 외국인
               </div>
             </div>
-
-            <!-- <div id="ccv-domesticEdu">
-              <div class="ccv-formButton" data-value="전문학사">전문학사</div>
-              <div class="ccv-formButton" data-value="학사">학사</div>
-              <div class="ccv-formButton" data-value="석사">석사</div>
-              <div class="ccv-formButton" data-value="박사">박사</div>
-              <div class="ccv-formButton" data-value="None">해당사항없음</div>
-            </div>
-            <div id="ccv-overseasEdu">
-              <div class="ccv-formButton" data-value="학사">학사</div>
-              <div class="ccv-formButton" data-value="석사">석사</div>
-              <div class="ccv-formButton" data-value="박사">박사</div>
-              <div class="ccv-formButton" data-value="None">해당사항없음</div>
-            </div> -->
             <div class="ccv-activeControlBox">
               <div class="ccv-nextButton deactiveted">다음</div>
             </div>
           </div>
 
-          <div class="ccv-form-multiStep" id="ccv-userKoreanTestLevel">
+          <div class="ccv-form-multiStep" id="ccv-">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
             <div class="ccv-form-title">거주 지역</div>
             <div class="ccv-formButton" data-value="한국 거주">한국 거주</div>
@@ -221,28 +207,115 @@
         const nextButtons = document.querySelectorAll(".ccv-nextButton");
         const prevButtons = document.querySelectorAll(".ccv-prevButton");
         const steps = document.querySelectorAll(".ccv-form-multiStep");
-
+    
         let currentStep = 0;
-
+    
         if (currentStep === 0) {
           localStorage.clear();
         }
-
+    
         function showStep(index) {
           steps.forEach((step, i) => {
             step.classList.toggle("active", i === index);
           });
         }
+    
+        function warringPopup(message) {
+        const warringModal = document.querySelector(".cc-warringModal");
+        const warringMessage = document.querySelector(
+          ".cc-warringModal-message"
+        );
+        const warringButton = document.querySelector(".cc-warringModal-button");
 
-        nextButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            if (currentStep < steps.length - 1) {
-              currentStep++;
-              showStep(currentStep);
-            }
-          });
+        warringMessage.textContent = message;
+        warringModal.style.display = "flex";
+        warringButton.addEventListener("click", () => {
+          warringModal.style.display = "none";
         });
+      }
+    
+        function validateStep() {
+          const validationRules = [
+            {
+              step: 0,
+              message: "국가를 선택해주세요.",
+              selector: "#ccv-userEduAbility .ccv-formButton.selected",
+            },
+            {
+              step: 1,
+              message: "거주 국가 선택해주세요.",
+              selector: "#ccv-userKoreanTestLevel .ccv-formButton.selected",
+            },
+            {
+              step: 2,
+              message: "회사의 형식을 선택해주세요.",
+              selector: "#ccv-intellectualPropertyRights .ccv-formButton.selected",
+            },
+            {
+              step: 3,
+              message: "회사의 설립지역을 선택해주세요.",
+              selector: "#ccv-patent .ccv-formButton.selected",
+            },
+            {
+              step: 4,
+              message: "법인명을 입력해주세요",
+              selector: "#ccv-isCorporationEstablished .ccv-formButton.selected",
+            },
+            {
+              step: 5,
+              message: "이름과 연락처를 입력해주세요.",
+              selector: "#ccv-isCorporationEstablished-sub .ccv-formButton.selected",
+            },
+          ];
+    
+          const rule = validationRules[currentStep];
+          if (rule && !document.querySelector(rule.selector)) {
+            // warringPopup(rule.message);
+            console.log('warningPopup');
+            console.log(currentStep);
 
+            
+            // return false;
+          }
+          return true;
+        }
+    
+        function saveToLocalStorage(key, value) {
+          localStorage.setItem(key, value);
+          console.log(localStorage);
+          
+        }
+    
+        function goToNextStep() {
+          const currentStepElement = steps[currentStep];
+    
+          if (!validateStep()) {
+            return; // 유효성 검사 실패 시 종료
+          }
+    
+          currentStepElement.classList.remove("active");
+    
+         
+          currentStep += 1; // 다음 단계로 이동
+    
+          if (currentStep < steps.length) {
+            steps[currentStep].classList.add("active");
+          }
+    
+          // 결과 페이지로 이동
+          if (currentStep === steps.length - 1) {
+            setTimeout(() => {
+              const loadingSection = document.getElementById("ccv-scoreResultLoading");
+              loadingSection.classList.remove("active");
+              // 추가 로직...
+            }, 1500);
+          }
+        }
+    
+        nextButtons.forEach((button) => {
+          button.addEventListener("click", goToNextStep); // goToNextStep 호출
+        });
+    
         prevButtons.forEach((button) => {
           button.addEventListener("click", () => {
             if (currentStep > 0) {
@@ -251,10 +324,11 @@
             }
           });
         });
-
+    
         // 초기 단계 표시
         showStep(currentStep);
       });
     </script>
+    
   </body>
 </html>
