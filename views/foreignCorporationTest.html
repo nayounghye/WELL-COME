@@ -474,11 +474,11 @@
         const currentStepElement = steps[currentStep];
 
         if (currentStep === 0) {
-          const noneSelection =
-            document.querySelector(
-              '#ccv-userEduAbility .ccv-formButton[data-value="None"].selected'
-            );
+          const noneSelection = document.querySelector(
+            "#ccv-userEduAbility  .ccv-radio-SelectBox.selected"
+          );
           if (noneSelection) {
+            // 내국인 선택 강조 부분
             currentStepElement.classList.remove("active");
             document.getElementById(
               "ccv-result-basicConditionNotMet"
@@ -495,7 +495,9 @@
 
         if (
           currentStep === 0 &&
-          !document.querySelector("#ccv-userEduAbility .ccv-formButton.selected")
+          !document.querySelector(
+            "#ccv-userEduAbility .ccv-formButton.selected"
+          )
         ) {
           warringPopup("국가를 선택해주세요.");
           return;
