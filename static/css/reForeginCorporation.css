@@ -1,0 +1,1444 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.cc-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: auto;
+
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cc-hidden {
+  opacity: 0; /* 보이지 않음 */
+}
+
+.cc-active {
+  background-color: #333333 !important;
+  color: #fcab40 !important;
+}
+
+@keyframes cc-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-12px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+  80% {
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cc-mo-grid-container {
+    display: none;
+  }
+  .cc-grid-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+  }
+  .cc-nav-logo,
+  .cc-topMenu {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .cc-nav-logo a {
+    width: 100%;
+    height: 100%;
+
+    line-height: 50px;
+    text-decoration: none;
+
+    background-color: #333333;
+    border-radius: 0 0 8px 8px;
+
+    color: #fcab40;
+    font-family: "Tenada" !important;
+    font-size: 28px;
+    padding-top: 10px;
+  }
+
+  .cc-nav-menu-container {
+    width: 100%;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .cc-topMenu a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    line-height: 60px;
+
+    background-color: #fcab40;
+    border-radius: 0 0 8px 8px;
+
+    font-family: "BMJUA";
+    font-size: 24px;
+    cursor: pointer;
+    color: #1a1a1a;
+  }
+
+  .cc-topMenu a:hover,
+  .cc-nav-logo a:hover {
+    animation: cc-bounce 0.6s ease infinite;
+  }
+
+  .cc-nav-logo a:hover {
+    color: #fcab40 !important;
+  }
+
+  .nav-topMenu a:active {
+    background-color: #333333;
+    color: #fcab40;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .cc-mo-grid-container {
+    display: none;
+  }
+  .cc-grid-container {
+    width: 100%;
+    max-width: 768px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 14px;
+  }
+  .cc-nav-logo,
+  .cc-topMenu {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .cc-nav-logo a {
+    width: 100%;
+    height: 100%;
+
+    line-height: 40px;
+    text-decoration: none;
+
+    background-color: #333333;
+    border-radius: 0 0 8px 8px;
+
+    color: #fcab40;
+    font-family: "Tenada" !important;
+    font-size: 20px;
+    padding-top: 10px;
+  }
+  .cc-nav-menu-container {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .cc-topMenu a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    line-height: 50px;
+
+    background-color: #fcab40;
+    border-radius: 0 0 8px 8px;
+
+    font-family: "BMJUA";
+    font-size: 20px;
+    cursor: pointer;
+    color: #1a1a1a;
+  }
+
+  .cc-topMenu a:hover,
+  .cc-nav-logo a:hover {
+    animation: cc-bounce 0.6s ease infinite;
+  }
+
+  .cc-nav-logo a:hover {
+    color: #fcab40 !important;
+  }
+
+  .nav-topMenu a:active {
+    background-color: #333333;
+    color: #fcab40;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .move-out {
+    right: -70%;
+    transition: right 0.5s ease;
+  }
+  .move-in {
+    right: 0px; /* 화면 안으로 이동 */
+    transition: right 0.5s ease;
+  }
+  .cc-grid-container {
+    display: none;
+  }
+  .cc-mo-grid-container {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    background-color: #333333;
+  }
+  #cc-nav-moLogo {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+  }
+  #cc-nav-moLogo a {
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    background-color: #333333;
+    color: #fcab40;
+    font-family: "Tenada" !important;
+    font-size: 20px;
+    text-align: left;
+    line-height: 54px;
+    padding-left: 16px;
+  }
+  #cc-nev-dropdown {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: center;
+  }
+  #cc-nev-dropdown i {
+    font-size: 24px;
+    color: #fcab40;
+    margin-right: 16px;
+  }
+
+  #cc-dropMenu-container {
+    position: fixed;
+    top: 50px;
+
+    width: 70%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    background-color: #333333;
+    gap: 20px;
+    padding: 20px;
+
+    overflow: hidden;
+  }
+
+  .cc-serviceTitle {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+    font-family: "TENADA";
+    font-size: 28px;
+    color: #fcab40;
+  }
+  .cc-dropMenu-line {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #fcab40;
+  }
+  .cc-dropMenu {
+    width: 100%;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .cc-dropMenu a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    line-height: 32px;
+
+    background-color: #fcab40;
+    border-radius: 8px;
+
+    font-family: "BMJUA";
+    font-size: 20px;
+    cursor: pointer;
+    color: #1a1a1a;
+  }
+
+  #cc-dropMenu-container > div:nth-child(6) {
+    margin-top: 40px;
+    color: #ffca42;
+  }
+
+  #cc-dropMenu-container > div:nth-child(7) {
+    background-color: #ffca42;
+  }
+
+  #cc-dropMenu-container > div:nth-child(8) > a {
+    background-color: #ffca42;
+  }
+  #cc-dropMenu-container > div:nth-child(9) {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+    gap: 10px;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > a {
+    height: auto;
+    text-align: right;
+    background-color: #333333;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > div:nth-child(2) {
+    text-align: right !important;
+    font-family: "SUIT";
+    font-size: 12px;
+    font-weight: 400;
+    color: #fcab40;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > div:nth-child(3) {
+    text-align: right !important;
+    font-family: "tenada";
+    font-size: 22px;
+    font-weight: 400;
+    color: #fcab40;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .move-out {
+    right: -98%;
+    transition: right 0.5s ease;
+  }
+  .move-in {
+    right: 0px; /* 화면 안으로 이동 */
+    transition: right 0.5s ease;
+  }
+  .cc-grid-container {
+    display: none;
+  }
+  .cc-mo-grid-container {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 8px;
+    background-color: #1a1a1a;
+  }
+  #cc-nav-moLogo {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+  }
+  #cc-nav-moLogo a {
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    background-color: #333333;
+    color: #fcab40;
+    font-family: "Tenada" !important;
+    font-size: 20px;
+    text-align: left;
+    line-height: 54px;
+    padding-left: 16px;
+  }
+  #cc-nev-dropdown {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: center;
+  }
+  #cc-nev-dropdown i {
+    font-size: 24px;
+    color: #fcab40;
+    margin-right: 16px;
+  }
+
+  #cc-dropMenu-container {
+    position: fixed;
+    top: 50px;
+
+    width: 98%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    background-color: #333333;
+    gap: 20px;
+    padding: 20px;
+
+    overflow: hidden;
+  }
+
+  .cc-serviceTitle {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+    font-family: "TENADA";
+    font-size: 22px;
+    color: #fcab40;
+  }
+  .cc-dropMenu-line {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #fcab40;
+  }
+  .cc-dropMenu {
+    width: 100%;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .cc-dropMenu a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    line-height: 32px;
+
+    background-color: #fcab40;
+    border-radius: 8px;
+
+    font-family: "BMJUA";
+    font-size: 18px;
+    cursor: pointer;
+    color: #1a1a1a;
+  }
+
+  #cc-dropMenu-container > div:nth-child(6) {
+    margin-top: 20px;
+    color: #ffca42;
+  }
+
+  #cc-dropMenu-container > div:nth-child(7) {
+    background-color: #ffca42;
+  }
+
+  #cc-dropMenu-container > div:nth-child(8) > a {
+    background-color: #ffca42;
+  }
+  #cc-dropMenu-container > div:nth-child(9) {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+    gap: 10px;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > a {
+    height: auto;
+    text-align: right;
+    background-color: #333333;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > div:nth-child(2) {
+    text-align: right !important;
+    font-family: "SUIT";
+    font-size: 12px;
+    font-weight: 400;
+    color: #fcab40;
+  }
+  #cc-dropMenu-container > div:nth-child(9) > div:nth-child(3) {
+    text-align: right !important;
+    font-family: "tenada";
+    font-size: 22px;
+    font-weight: 400;
+    color: #fcab40;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fcf9f7;
+}
+
+#addFormw2024082259f02e163f56b {
+  overflow: hidden;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+#w2024082259f02e163f56b ._input_form_submit {
+  overflow: hidden;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+.ccv-fullSection-container {
+  width: 100%;
+  height: 130vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ccv-mainSection {
+  width: 1200px;
+  height: 100%;
+  padding: 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.ccv-form-multiStep {
+  width: 100%;
+  height: auto;
+  display: none;
+  opacity: 0;
+  max-height: 0;
+
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.55);
+
+  transition: opacity 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.ccv-form-multiStep.active {
+  max-height: 200vh;
+  opacity: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: 20px;
+}
+
+.ccv-form-title {
+  width: 100%;
+  height: auto;
+
+  margin-bottom: 10px;
+
+  font-family: "tenada";
+  font-weight: 700;
+  font-size: 48px;
+  color: #333333;
+}
+
+.ccv-form-title > span {
+  color: #900b0b;
+}
+
+.ccv-userEduCountry {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ccv-radio-SelectBox {
+  width: 100%;
+  height: auto;
+  padding: 50px 10px;
+  border: #ffffff 1px solid;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+  background-color: #fcf9f7;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-family: "BMJUA";
+  cursor: pointer;
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.ccv-radio-SelectBox input[type="radio"] {
+  display: none;
+}
+
+.ccv-radio-SelectBox:hover,
+.ccv-radio-SelectBox.selected {
+  background-color: #fcab40;
+  border: #fcab40 1px solid;
+  color: white;
+}
+
+.ccv-radio-SelectBox:active {
+  background-color: #333333;
+  border: #333333 1px solid;
+  color: #fcab40;
+}
+
+.ccv-userEduCountry > .ccv-radio-SelectBox img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.ccv-userEduCountry > div:nth-child(1) > img {
+  border: 2px solid #333333;
+}
+
+#ccv-domesticEdu,
+#ccv-overseasEdu {
+  width: 100%;
+  max-height: 0;
+  /* opacity: 0; */
+  display: none;
+  gap: 20px;
+
+  transition: max-height 0.8s ease-in-out;
+}
+
+#ccv-domesticEdu.active,
+#ccv-overseasEdu.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  max-height: 100vh;
+}
+
+.ccv-activeControlBox {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ccv-formButton {
+  width: 100%;
+  height: 60px;
+  border: #ffffff 1px solid;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+  background-color: #fcf9f7;
+
+  font-size: 24px;
+  font-family: "BMJUA";
+  cursor: pointer;
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ccv-formButton:hover,
+.ccv-formButton.selected {
+  background-color: #fcab40;
+  border: #fcab40 1px solid;
+  color: white;
+}
+
+.ccv-formButton:active {
+  background-color: #333333;
+  border: #333333 1px solid;
+  color: #fcab40;
+}
+
+#ccv-userEduAbility > .ccv-activeControlBox {
+  display: flex;
+}
+
+.ccv-prevButton,
+.ccv-nextButton {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+  /* background-color: #FCAB40; */
+  background-color: #1a1a1a;
+  color: #fcab40;
+  /* color: black; */
+
+  font-size: 24px;
+  font-family: "BMJUA";
+  cursor: pointer;
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.ccv-prevButton.deactiveted,
+.ccv-nextButton.deactiveted {
+  background-color: #999999;
+  color: white;
+  box-shadow: 0;
+}
+
+.ccv-prevButton:hover,
+.ccv-nextButton:hover {
+  background-color: #000000;
+  color: #fcab40;
+}
+
+.ccv-prevButton:active,
+.ccv-nextButton:active {
+  background-color: #333333;
+  color: #fcab40;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+.ccv-result-multiResult {
+  width: 100%;
+  height: auto;
+
+  display: none;
+}
+
+.cc-warringModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1010;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  display: none;
+}
+
+.cc-warringModal-content {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-warringModal-title {
+  font-family: "BMJUA";
+  font-size: 24px;
+  color: red;
+
+  margin-bottom: 18px;
+}
+
+.cc-warringModal-message {
+  font-family: "BMJUA";
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 18px;
+}
+
+.cc-warringModal-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fcab40;
+  color: white;
+  font-family: "BMJUA";
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cc-warringModal-button:hover {
+  background-color: #333333;
+  color: #fcab40;
+}
+.cc-warringModal-button:active {
+  background-color: #fcab40;
+  color: white;
+}
+
+.ccv-intellectualPropertyRightsType {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ccv-intellectualPropertyRightsType > .ccv-radio-SelectBox img {
+  width: auto;
+  height: 100px;
+  margin: 30px;
+}
+
+.ccv-hiddenForm {
+  width: 100%;
+  max-height: 0;
+  display: none;
+  gap: 20px;
+
+  transition: max-height 0.8s ease-in-out;
+}
+
+.ccv-hiddenForm.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  max-height: 100vh;
+}
+
+.ccv-checkbox-container {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: 20px;
+}
+
+.ccv-loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+}
+
+.ccv-spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #fcab40; /* Yellow */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#ccv-result-basicConditionNotMet > .ccv-formButton > a,
+#ccv-result-applicationConditionMet > .ccv-formButton > a,
+#ccv-result-applicationConditionNotMet > .ccv-formButton > a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+  line-height: 60px;
+}
+
+#ccv-result-applicationConditionNotMet > .ccv-form-title > ul {
+  font-family: "BMJUA";
+  font-size: 28px;
+  color: #0008c1;
+  list-style: inside;
+  padding-left: 10px;
+}
+
+.ccv-scoreDisplay {
+  width: 100%;
+  height: auto;
+  font-family: "BMJUA";
+  font-size: 32px;
+  color: #333333;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* 애니메이션 추가 */
+@keyframes pulse {
+  0% {
+    transform: scale(0.99);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(0.99);
+  }
+}
+
+.ccv-formButton.pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.ccv-formButton.resultStrong {
+  background-color: #1a1a1a;
+}
+.ccv-formButton.resultStrong > a {
+  color: #fcab40 !important;
+}
+/* 탭 형태의 스타일 추가 */
+.ccv-serviceButton {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #fcab40;
+  color: #333333;
+  font-family: "BMJUA";
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  cursor: default;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+  margin-top: 20px;
+}
+
+.ccv-serviceButton:hover {
+  background-color: #333333;
+  color: #fcab40;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+.cc-infInputModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1010;
+
+  display: none;
+}
+
+.infoInputModal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.infInputModal-title {
+  font-family: "BMJUA";
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.ccv-input-name,
+.ccv-input-email,
+.ccv-input-phone {
+  width: 100%;
+  height: 5vh;
+  border-radius: 10px;
+  border: #333333 1px solid;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  font-family: "BMJUA";
+}
+
+.ccv-input-name::placeholder,
+.ccv-input-email::placeholder,
+.ccv-input-phone::placeholder {
+  font-family: "BMJUA";
+  font-size: 2vh;
+}
+
+.ccv-input-name:focus,
+.ccv-input-email:focus,
+.ccv-input-phone:focus {
+  border: #fcab40 1px solid;
+}
+
+.infoInputModal-button {
+  width: 100%;
+  height: 6vh;
+
+  text-align: center;
+  line-height: 6vh;
+
+  border-radius: 10px;
+  background-color: #fcab40;
+  color: #333333;
+  font-family: "BMJUA";
+  font-size: 2vh;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.25);
+}
+
+.infoInputModal-button:hover {
+  background-color: #333333;
+  color: #fcab40;
+}
+
+.infoInputModal-button:active {
+  background-color: #fcab40;
+  color: #333333;
+  box-shadow: inset 0px 4px 10px rgba(51, 51, 51, 0.25);
+}
+
+.ccv-result-multiResult > .ccv-scoreDisplay {
+  color: red;
+}
+
+@media screen and (max-width: 1200px) {
+  .ccv-mainSection {
+    width: 100%;
+    height: 100vh;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+  }
+
+  .ccv-form-title {
+    font-size: 28px;
+  }
+
+  .ccv-userEduCountry {
+    display: flex;
+    flex-direction: column;
+  }
+  .ccv-radio-SelectBox {
+    padding: 20px 10px;
+    font-size: 18px;
+  }
+  .ccv-radio-SelectBox img {
+    width: 50px;
+    height: 50px;
+  }
+  .ccv-formButton {
+    font-size: 18px;
+    height: 40px;
+  }
+
+  .ccv-intellectualPropertyRightsType > .ccv-radio-SelectBox img {
+    width: auto;
+    height: 50px;
+    margin: 0;
+  }
+  .ccv-nextButton,
+  .ccv-prevButton {
+    height: 40px;
+    font-size: 18px;
+  }
+
+  #ccv-result-basicConditionNotMet > .ccv-formButton > a,
+  #ccv-result-applicationConditionMet > .ccv-formButton > a,
+  #ccv-result-applicationConditionNotMet > .ccv-formButton > a {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  #ccv-result-applicationConditionNotMet > .ccv-form-title > ul {
+    font-size: 18px;
+  }
+  .ccv-serviceButton {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    margin: 4px 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#s20240823f74506817b06b {
+  width: 100vw !important;
+}
+@media screen and (min-width: 1200px) {
+  .cc-footer-section {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+    background-color: #333333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cc-footer {
+    width: 1200px;
+    height: auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    font-family: "SUIT";
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .cc-footer-logo {
+    font-family: "TENADA";
+    font-size: 42px;
+    color: #fcab40;
+    margin-bottom: 20px;
+  }
+
+  .cc-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .cc-footer-section {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+    background-color: #333333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cc-footer {
+    width: 768px;
+    height: auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    font-family: "SUIT";
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .cc-footer-logo {
+    font-family: "TENADA";
+    font-size: 42px;
+    color: #fcab40;
+    margin-bottom: 20px;
+  }
+
+  .cc-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .cc-footer-section {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+    background-color: #333333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cc-footer {
+    width: 360px;
+    height: auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    font-family: "SUIT";
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .cc-footer-logo {
+    font-family: "TENADA";
+    font-size: 32px;
+    color: #fcab40;
+    margin-bottom: 20px;
+  }
+
+  .cc-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .cc-footer-section {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+    background-color: #333333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cc-footer {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    font-family: "SUIT";
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .cc-footer-logo {
+    font-family: "TENADA";
+    font-size: 32px;
+    color: #fcab40;
+    margin-bottom: 20px;
+  }
+
+  .cc-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 8px;
+  }
+}
+
+#\:2\.container {
+  overflow: hidden;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+.language-select {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ffca42;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "BMJUA";
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Add space between Translate text and dropdown */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Adjust select box style */
+.language-select select {
+  appearance: none; /* Remove default styling */
+  background-color: #fff; /* Set background color */
+  color: #1a1a1a; /* Set text color */
+  border: none; /* Remove border */
+  font-family: "BMJUA";
+  font-size: 14px;
+  padding: 5px 10px; /* Padding inside the select box */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Add a custom arrow for the select box */
+.language-select select::after {
+  content: "▼"; /* Custom arrow character */
+  color: #1a1a1a;
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Make sure the arrow doesn't interfere with clicks */
+}
+
+#\:2\.container {
+  overflow: hidden;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+.language-select {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ffca42;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "BMJUA";
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Add space between Translate text and dropdown */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Adjust select box style */
+.language-select select {
+  appearance: none; /* Remove default styling */
+  background-color: #fff; /* Set background color */
+  color: #1a1a1a; /* Set text color */
+  border: none; /* Remove border */
+  font-family: "BMJUA";
+  font-size: 14px;
+  padding: 5px 10px; /* Padding inside the select box */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Add a custom arrow for the select box */
+.language-select select::after {
+  content: "▼"; /* Custom arrow character */
+  color: #1a1a1a;
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Make sure the arrow doesn't interfere with clicks */
+}
+#goog-gt-tt {
+  display: none !important;
+}
+
+.language-select:hover {
+  background-color: #1a1a1a;
+  color: #ffca42;
+}
