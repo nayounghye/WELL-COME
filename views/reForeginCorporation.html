@@ -258,23 +258,23 @@
 
           <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">이름을 작성해주세요</div>
+            <div class="ccv-form-title">请填写姓名</div>
             <input type="text" class="ccv-formButton" placeholder="이름" />
 
             <div class="ccv-activeControlBox">
-              <div class="ccv-prevButton">이전</div>
-              <div class="ccv-nextButton deactiveted">다음</div>
+              <div class="ccv-prevButton">上一步</div>
+              <div class="ccv-nextButton deactiveted">下一步</div>
             </div>
           </section>
 
           <section class="ccv-form-multiStep" id="ccv-isCorporationEstablished-sub">
             <div class="ccv-scoreDisplay" id="scoreDisplay"></div>
-            <div class="ccv-form-title">연락처를 작성해주세요</div>
+            <div class="ccv-form-title">请填写联系方式</div>
             <input type="text" class="ccv-formButton" placeholder="연락처" />
 
             <div class="ccv-activeControlBox">
-              <div class="ccv-prevButton">이전</div>
-              <div class="ccv-nextButton deactiveted" onclick="submitInfo()">상담받기</div>
+              <div class="ccv-prevButton">上一步</div>
+              <div class="ccv-nextButton deactiveted" onclick="submitInfo()">提交</div>
             </div>
           </section>
           </div>
@@ -355,12 +355,12 @@
             },
             {
               step: 5,
-              message: "이름을 입력해주세요.",
+              message: "请填写姓名.",
               selector: "#ccv-isCorporationEstablished-sub .ccv-formButton.selected",
             },
             {
               step: 6,
-              message: "연락처를 입력해주세요.",
+              message: "请填写联系方式",
               selector: "#ccv-isCorporationEstablished-sub .ccv-formButton.selected",
             },
           ];
@@ -465,7 +465,6 @@
         // 초기 단계 표시
         showStep(currentStep);
       });
-
 
       
 
